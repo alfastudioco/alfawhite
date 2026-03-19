@@ -607,7 +607,7 @@
     <div class="contact-details reveal reveal-delay-3">
       <div class="contact-detail"><span class="detail-label">Studio</span><span class="detail-value">954 Seton Ct.<br>Wheeling, IL 60090</span></div>
       <div class="contact-detail"><span class="detail-label">Hours</span><span class="detail-value"><br>By Appointment</span></div>
-      <div class="contact-detail"><span class="detail-label">Contact</span><span class="detail-value"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="355d4058545b7554595354464140515c5a1b4046">[email&#160;protected]</a><br></span></div>
+      <div class="contact-detail"><span class="detail-label">Contact</span><span class="detail-value"><a id="contactEmail" href="#">human@alfastudio.us</a><br></span></div>
     </div>
   </div>
   <div class="contact-form reveal reveal-delay-2">
@@ -635,7 +635,7 @@
     <div><div class="footer-brand">Alfa <span>Studio</span></div><p class="footer-tagline">Luxury custom millwork for spaces that deserve nothing less than extraordinary craftsmanship.</p><div class="footer-social"><a href="#" class="social-link">IG</a><a href="#" class="social-link">HO</a><a href="#" class="social-link">PI</a><a href="#" class="social-link">LI</a></div></div>
     <div><div class="footer-col-title">Services</div><ul class="footer-links"><li><a href="#">Custom Kitchens</a></li><li><a href="#">Closets &amp; Dressing Rooms</a></li><li><a href="#">Bathroom Vanities</a></li><li><a href="#">Built-ins &amp; Media Walls</a></li><li><a href="#">Mudrooms &amp; Entry</a></li></ul></div>
     <div><div class="footer-col-title">Studio</div><ul class="footer-links"><li><a href="#">Our Philosophy</a></li><li><a href="#">The Process</a></li><li><a href="#">Portfolio</a></li><li><a href="#">Press</a></li><li><a href="#">Careers</a></li></ul></div>
-    <div><div class="footer-col-title">Connect</div><ul class="footer-links"><li><a href="#">Trade Program</a></li><li><a href="#">Schedule a Visit</a></li><li><a href="#">Project Inquiry</a></li><li><a href="#"><span class="__cf_email__" data-cfemail="b3dbd6dfdfdcf3d2dfd5d2c0c7c6d7dadc9dd0dcde">[email&#160;protected]</span></a></li><li><a href="#">+1 (212) 555 0190</a></li></ul></div>
+    <div><div class="footer-col-title">Connect</div><ul class="footer-links"><li><a href="#">Trade Program</a></li><li><a href="#">Schedule a Visit</a></li><li><a href="#">Project Inquiry</a></li><li><a id="footerEmail" href="#">hello@alfastudio.com</a></li><li><a href="#">+1 (212) 555 0190</a></li></ul></div>
   </div>
   <div class="footer-bottom">
     <p class="footer-copy">&copy; 2025 Alfa Studio. All rights reserved.</p>
@@ -656,7 +656,7 @@
   </div>
 </div>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script>
   const cursor=document.getElementById('cursor'),ring=document.getElementById('cursorRing');
   let mx=0,my=0,rx=0,ry=0;
   document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;cursor.style.left=mx+'px';cursor.style.top=my+'px';});
@@ -697,6 +697,16 @@
   }
   function closeThankYou(){document.getElementById('thankyouOverlay').classList.remove('active');}
   document.querySelectorAll('form[action*="formspree"]').forEach(f=>f.addEventListener('submit',handleFormSubmit));
+
+  // Assemble emails so Cloudflare can't obfuscate them
+  (function(){
+    var c = ['human','@','alfastudio','.us'].join('');
+    var f = ['hello','@','alfastudio','.com'].join('');
+    var ce = document.getElementById('contactEmail');
+    var fe = document.getElementById('footerEmail');
+    if(ce){ ce.href = 'mailto:' + c; ce.textContent = c; }
+    if(fe){ fe.href = 'mailto:' + f; fe.textContent = f; }
+  })();
 </script>
 </body>
 </html>
