@@ -37,9 +37,27 @@
   .hero { height: 100vh; position: relative; display: flex; align-items: flex-end; overflow: hidden; }
   .hero-bg { position: absolute; inset: 0; background: linear-gradient(135deg,#0A0908 0%,#141210 40%,#1E1A12 100%); }
   .hero-geo { position: absolute; inset: 0; pointer-events: none; }
-  .hero-geo::before { content: ''; position: absolute; top: 12%; right: 8%; width: 420px; height: 520px; border: 1px solid rgba(201,169,110,.1); transform: rotate(6deg); }
-  .hero-geo::after { content: ''; position: absolute; top: 16%; right: 12%; width: 360px; height: 460px; border: 1px solid rgba(201,169,110,.06); transform: rotate(-2deg); }
-  .hero-letter { position: absolute; right: -2%; top: 50%; transform: translateY(-50%); font-family: 'Cormorant Garamond', serif; font-size: 38vw; font-weight: 300; color: transparent; -webkit-text-stroke: 1px rgba(201,169,110,.06); line-height: 1; user-select: none; pointer-events: none; }
+  .hero-geo::before { content: ''; position: absolute; top: 12%; right: 8%; width: 420px; height: 520px; border: 1px solid rgba(201,169,110,.06); transform: rotate(6deg); }
+  .hero-geo::after { content: ''; position: absolute; top: 16%; right: 12%; width: 360px; height: 460px; border: 1px solid rgba(201,169,110,.03); transform: rotate(-2deg); }
+  .hero-letter { display: none; }
+  /* Hero right illustration */
+  .hero-visual { position: absolute; right: 0; top: 0; bottom: 0; width: 52%; pointer-events: none; z-index: 1; }
+  .hero-visual-fade { position: absolute; inset: 0; background: linear-gradient(to right, #0A0908 0%, transparent 28%, transparent 80%, #0A0908 100%); z-index: 3; }
+  .hero-visual-fade-bottom { position: absolute; inset: 0; background: linear-gradient(to top, #0A0908 0%, transparent 35%); z-index: 3; }
+  .hero-visual svg { position: absolute; inset: 0; width: 100%; height: 100%; }
+  /* draw-in animations */
+  .h-draw { stroke-dasharray: 2000; stroke-dashoffset: 2000; animation: hDraw 2.8s cubic-bezier(0.4,0,0.2,1) forwards; }
+  .h-draw-2 { stroke-dasharray: 2000; stroke-dashoffset: 2000; animation: hDraw 2.8s cubic-bezier(0.4,0,0.2,1) .2s forwards; }
+  .h-draw-3 { stroke-dasharray: 2000; stroke-dashoffset: 2000; animation: hDraw 2.6s cubic-bezier(0.4,0,0.2,1) .4s forwards; }
+  .h-draw-4 { stroke-dasharray: 2000; stroke-dashoffset: 2000; animation: hDraw 2.4s cubic-bezier(0.4,0,0.2,1) .6s forwards; }
+  .h-draw-5 { stroke-dasharray: 2000; stroke-dashoffset: 2000; animation: hDraw 2.2s cubic-bezier(0.4,0,0.2,1) .8s forwards; }
+  .h-fade { opacity: 0; animation: hFade .8s ease 1.8s forwards; }
+  .h-fade-2 { opacity: 0; animation: hFade .8s ease 2s forwards; }
+  .h-fade-3 { opacity: 0; animation: hFade .8s ease 2.2s forwards; }
+  @keyframes hDraw { to { stroke-dashoffset: 0; } }
+  @keyframes hFade { to { opacity: 1; } }
+  @media (max-width: 1024px) { .hero-visual { width: 60%; } }
+  @media (max-width: 768px) { .hero-visual { display: none; } }
   .hero-content { position: relative; z-index: 2; padding: 0 56px 100px; max-width: 800px; }
   .hero-eyebrow { display: flex; align-items: center; gap: 16px; margin-bottom: 32px; opacity: 0; animation: fadeUp 1s var(--transition) .3s forwards; }
   .hero-eyebrow span { font-size: 11px; font-weight: 300; letter-spacing: .35em; text-transform: uppercase; color: var(--gold); }
@@ -291,7 +309,298 @@
 
 <section class="hero" id="hero">
   <div class="hero-bg"></div><div class="hero-geo"></div>
-  <div class="hero-letter">A</div>
+
+  <!-- Right-side luxury cabinet illustration -->
+  <div class="hero-visual">
+    <div class="hero-visual-fade"></div>
+    <div class="hero-visual-fade-bottom"></div>
+    <svg viewBox="0 0 680 900" xmlns="http://www.w3.org/2000/svg" fill="none" preserveAspectRatio="xMidYMid slice">
+      <defs>
+        <!-- Wood panel gradients – warm walnut tones -->
+        <linearGradient id="hWood1" x1="0" y1="0" x2="1" y2="0">
+          <stop offset="0%"   stop-color="#181210"/>
+          <stop offset="25%"  stop-color="#2C2018"/>
+          <stop offset="55%"  stop-color="#241A12"/>
+          <stop offset="80%"  stop-color="#302418"/>
+          <stop offset="100%" stop-color="#1C1410"/>
+        </linearGradient>
+        <linearGradient id="hWood2" x1="0" y1="0" x2="1" y2="0">
+          <stop offset="0%"   stop-color="#1A1410"/>
+          <stop offset="40%"  stop-color="#342818"/>
+          <stop offset="100%" stop-color="#1E1812"/>
+        </linearGradient>
+        <linearGradient id="hWood3" x1="0" y1="0" x2="1" y2="0">
+          <stop offset="0%"   stop-color="#201810"/>
+          <stop offset="50%"  stop-color="#2E2416"/>
+          <stop offset="100%" stop-color="#1C1610"/>
+        </linearGradient>
+        <linearGradient id="hMarble" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%"   stop-color="#D8D2C8"/>
+          <stop offset="40%"  stop-color="#E4DED4"/>
+          <stop offset="70%"  stop-color="#CCC6BC"/>
+          <stop offset="100%" stop-color="#B8B2A8"/>
+        </linearGradient>
+        <linearGradient id="hMarbleEdge" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%"   stop-color="#F0EAE0"/>
+          <stop offset="100%" stop-color="#C8C2B8"/>
+        </linearGradient>
+        <linearGradient id="hGoldH" x1="0" y1="0" x2="1" y2="0">
+          <stop offset="0%"   stop-color="#8A6830"/>
+          <stop offset="35%"  stop-color="#DFC08A"/>
+          <stop offset="65%"  stop-color="#C9A96E"/>
+          <stop offset="100%" stop-color="#8A6830"/>
+        </linearGradient>
+        <linearGradient id="hGoldV" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%"   stop-color="#8A6830"/>
+          <stop offset="35%"  stop-color="#DFC08A"/>
+          <stop offset="65%"  stop-color="#C9A96E"/>
+          <stop offset="100%" stop-color="#8A6830"/>
+        </linearGradient>
+        <linearGradient id="hSink" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%"   stop-color="#2A2A2A"/>
+          <stop offset="100%" stop-color="#111111"/>
+        </linearGradient>
+        <linearGradient id="hGlass" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%"   stop-color="#1C2828" stop-opacity=".9"/>
+          <stop offset="100%" stop-color="#0E1818" stop-opacity=".95"/>
+        </linearGradient>
+        <linearGradient id="hShelf" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%"   stop-color="#2A2018"/>
+          <stop offset="100%" stop-color="#1A1410"/>
+        </linearGradient>
+        <linearGradient id="hWall" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%"   stop-color="#0E0C0A"/>
+          <stop offset="100%" stop-color="#141210"/>
+        </linearGradient>
+        <filter id="hGlow">
+          <feGaussianBlur stdDeviation="2" result="b"/>
+          <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+        </filter>
+        <filter id="hSoftShadow">
+          <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#000" flood-opacity=".4"/>
+        </filter>
+        <filter id="hMarbleShadow">
+          <feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#000" flood-opacity=".5"/>
+        </filter>
+      </defs>
+
+      <!-- ══════════════════════════════════
+           WALL BACKGROUND
+      ══════════════════════════════════ -->
+      <rect x="0" y="0" width="680" height="900" fill="url(#hWall)"/>
+      <!-- Subtle wall texture lines -->
+      <line x1="0" y1="420" x2="680" y2="420" stroke="#C9A96E" stroke-width=".3" opacity=".08"/>
+
+      <!-- ══════════════════════════════════
+           UPPER CABINET WALL UNIT  (full width, y0–380)
+      ══════════════════════════════════ -->
+      <!-- Cabinet soffit / ceiling block -->
+      <rect x="40" y="30" width="600" height="28" fill="url(#hWood1)" class="h-draw" stroke="#C9A96E" stroke-width=".5" opacity=".7"/>
+      <!-- Soffit underside shadow -->
+      <rect x="40" y="55" width="600" height="6" fill="#0A0806" opacity=".5"/>
+
+      <!-- ── LEFT upper unit – glass-front cabinet ── -->
+      <!-- Cabinet box -->
+      <rect x="40" y="61" width="188" height="265" fill="url(#hWood2)" class="h-draw" stroke="#C9A96E" stroke-width=".5" opacity=".8"/>
+      <!-- Glass door frame outer -->
+      <rect x="50" y="71" width="168" height="245" rx="1" stroke="#C9A96E" stroke-width=".8" opacity=".6" class="h-draw-2"/>
+      <!-- Glass door frame inner -->
+      <rect x="57" y="78" width="154" height="231" rx=".5" stroke="#C9A96E" stroke-width=".4" opacity=".35" class="h-draw-2"/>
+      <!-- Glass fill -->
+      <rect x="58" y="79" width="152" height="229" fill="url(#hGlass)" opacity=".85"/>
+      <!-- Glass sheen highlight -->
+      <rect x="58" y="79" width="36" height="229" fill="white" opacity=".03"/>
+      <!-- Horizontal glass bar divider -->
+      <rect x="50" y="176" width="168" height="6" fill="url(#hWood2)" stroke="#C9A96E" stroke-width=".5" opacity=".7" class="h-draw-3"/>
+      <!-- Vertical glass bar divider -->
+      <rect x="130" y="71" width="6" height="245" fill="url(#hWood2)" stroke="#C9A96E" stroke-width=".4" opacity=".6" class="h-draw-3"/>
+      <!-- Glass door handle (small bar pull) -->
+      <rect x="213" y="188" width="5" height="32" rx="2.5" fill="url(#hGoldV)" filter="url(#hGlow)" class="h-fade"/>
+      <!-- Items visible through glass – upper pane -->
+      <rect x="70" y="95"  width="44" height="7" rx="1" fill="#C9A96E" opacity=".15" class="h-fade-2"/>
+      <rect x="68" y="102" width="48" height="7" rx="1" fill="#C9A96E" opacity=".11" class="h-fade-2"/>
+      <rect x="72" y="109" width="40" height="7" rx="1" fill="#C9A96E" opacity=".13" class="h-fade-2"/>
+      <!-- Wine glasses right pane upper -->
+      <path d="M148 100 Q144 118 140 128 L160 128 Q156 118 152 100 Z" stroke="#C9A96E" stroke-width=".7" opacity=".2" class="h-fade-2"/>
+      <line x1="150" y1="128" x2="150" y2="138" stroke="#C9A96E" stroke-width=".6" opacity=".2" class="h-fade-2"/>
+      <line x1="143" y1="138" x2="157" y2="138" stroke="#C9A96E" stroke-width=".6" opacity=".2" class="h-fade-2"/>
+      <path d="M172 100 Q168 118 164 128 L184 128 Q180 118 176 100 Z" stroke="#C9A96E" stroke-width=".7" opacity=".2" class="h-fade-2"/>
+      <line x1="174" y1="128" x2="174" y2="138" stroke="#C9A96E" stroke-width=".6" opacity=".2" class="h-fade-2"/>
+      <line x1="167" y1="138" x2="181" y2="138" stroke="#C9A96E" stroke-width=".6" opacity=".2" class="h-fade-2"/>
+      <!-- Items lower pane – decorative plates stacked -->
+      <ellipse cx="95"  cy="230" rx="28" ry="4" stroke="#C9A96E" stroke-width=".6" opacity=".2" class="h-fade-2"/>
+      <ellipse cx="95"  cy="226" rx="28" ry="4" stroke="#C9A96E" stroke-width=".5" opacity=".15" class="h-fade-2"/>
+      <ellipse cx="95"  cy="222" rx="28" ry="4" stroke="#C9A96E" stroke-width=".4" opacity=".12" class="h-fade-2"/>
+      <ellipse cx="165" cy="230" rx="26" ry="4" stroke="#C9A96E" stroke-width=".6" opacity=".2" class="h-fade-2"/>
+      <ellipse cx="165" cy="226" rx="26" ry="4" stroke="#C9A96E" stroke-width=".5" opacity=".15" class="h-fade-2"/>
+
+      <!-- ── CENTRE upper unit – solid panel with reeded detail ── -->
+      <rect x="230" y="61" width="220" height="265" fill="url(#hWood1)" class="h-draw" stroke="#C9A96E" stroke-width=".5" opacity=".8"/>
+      <!-- Reeded vertical grooves (11 reeds) -->
+      <line x1="250" y1="71" x2="250" y2="316" stroke="#C9A96E" stroke-width=".4" opacity=".2" class="h-draw-3"/>
+      <line x1="270" y1="71" x2="270" y2="316" stroke="#C9A96E" stroke-width=".4" opacity=".2" class="h-draw-3"/>
+      <line x1="290" y1="71" x2="290" y2="316" stroke="#C9A96E" stroke-width=".4" opacity=".2" class="h-draw-3"/>
+      <line x1="310" y1="71" x2="310" y2="316" stroke="#C9A96E" stroke-width=".4" opacity=".2" class="h-draw-3"/>
+      <line x1="330" y1="71" x2="330" y2="316" stroke="#C9A96E" stroke-width=".4" opacity=".2" class="h-draw-3"/>
+      <line x1="350" y1="71" x2="350" y2="316" stroke="#C9A96E" stroke-width=".4" opacity=".2" class="h-draw-3"/>
+      <line x1="370" y1="71" x2="370" y2="316" stroke="#C9A96E" stroke-width=".4" opacity=".2" class="h-draw-3"/>
+      <line x1="390" y1="71" x2="390" y2="316" stroke="#C9A96E" stroke-width=".4" opacity=".2" class="h-draw-3"/>
+      <line x1="410" y1="71" x2="410" y2="316" stroke="#C9A96E" stroke-width=".4" opacity=".2" class="h-draw-3"/>
+      <line x1="430" y1="71" x2="430" y2="316" stroke="#C9A96E" stroke-width=".4" opacity=".2" class="h-draw-3"/>
+      <!-- Inset panel border inside reeded section -->
+      <rect x="238" y="73" width="204" height="241" rx="1" stroke="#C9A96E" stroke-width=".6" opacity=".4" class="h-draw-3"/>
+      <!-- Centre pendant light mount hint -->
+      <line x1="340" y1="30" x2="340" y2="61" stroke="#C9A96E" stroke-width=".6" opacity=".3" class="h-draw-2"/>
+      <circle cx="340" cy="65" r="4" stroke="#C9A96E" stroke-width=".8" opacity=".4" class="h-fade"/>
+
+      <!-- ── RIGHT upper unit – glass-front cabinet (mirror of left) ── -->
+      <rect x="452" y="61" width="188" height="265" fill="url(#hWood2)" class="h-draw" stroke="#C9A96E" stroke-width=".5" opacity=".8"/>
+      <!-- Glass door frame outer -->
+      <rect x="462" y="71" width="168" height="245" rx="1" stroke="#C9A96E" stroke-width=".8" opacity=".6" class="h-draw-2"/>
+      <!-- Glass door frame inner -->
+      <rect x="469" y="78" width="154" height="231" rx=".5" stroke="#C9A96E" stroke-width=".4" opacity=".35" class="h-draw-2"/>
+      <!-- Glass fill -->
+      <rect x="470" y="79" width="152" height="229" fill="url(#hGlass)" opacity=".85"/>
+      <rect x="470" y="79" width="36" height="229" fill="white" opacity=".03"/>
+      <!-- Horizontal & vertical bar dividers -->
+      <rect x="462" y="176" width="168" height="6" fill="url(#hWood2)" stroke="#C9A96E" stroke-width=".5" opacity=".7" class="h-draw-3"/>
+      <rect x="542" y="71" width="6" height="245" fill="url(#hWood2)" stroke="#C9A96E" stroke-width=".4" opacity=".6" class="h-draw-3"/>
+      <!-- Handle -->
+      <rect x="456" y="188" width="5" height="32" rx="2.5" fill="url(#hGoldV)" filter="url(#hGlow)" class="h-fade"/>
+      <!-- Items through glass -->
+      <rect x="478" y="95"  width="44" height="7" rx="1" fill="#C9A96E" opacity=".15" class="h-fade-2"/>
+      <rect x="476" y="102" width="48" height="7" rx="1" fill="#C9A96E" opacity=".11" class="h-fade-2"/>
+      <rect x="480" y="109" width="40" height="7" rx="1" fill="#C9A96E" opacity=".13" class="h-fade-2"/>
+      <path d="M558 100 Q554 118 550 128 L570 128 Q566 118 562 100 Z" stroke="#C9A96E" stroke-width=".7" opacity=".2" class="h-fade-2"/>
+      <line x1="560" y1="128" x2="560" y2="138" stroke="#C9A96E" stroke-width=".6" opacity=".2" class="h-fade-2"/>
+      <line x1="553" y1="138" x2="567" y2="138" stroke="#C9A96E" stroke-width=".6" opacity=".2" class="h-fade-2"/>
+      <path d="M582 100 Q578 118 574 128 L594 128 Q590 118 586 100 Z" stroke="#C9A96E" stroke-width=".7" opacity=".2" class="h-fade-2"/>
+      <line x1="584" y1="128" x2="584" y2="138" stroke="#C9A96E" stroke-width=".6" opacity=".2" class="h-fade-2"/>
+      <line x1="577" y1="138" x2="591" y2="138" stroke="#C9A96E" stroke-width=".6" opacity=".2" class="h-fade-2"/>
+      <ellipse cx="505" cy="230" rx="28" ry="4" stroke="#C9A96E" stroke-width=".6" opacity=".2" class="h-fade-2"/>
+      <ellipse cx="505" cy="226" rx="28" ry="4" stroke="#C9A96E" stroke-width=".5" opacity=".15" class="h-fade-2"/>
+      <ellipse cx="575" cy="230" rx="26" ry="4" stroke="#C9A96E" stroke-width=".6" opacity=".2" class="h-fade-2"/>
+
+      <!-- ══════════════════════════════════
+           MARBLE COUNTERTOP  (y326–372)
+      ══════════════════════════════════ -->
+      <!-- Counter body -->
+      <rect x="30" y="326" width="620" height="36" fill="url(#hMarble)" filter="url(#hMarbleShadow)" class="h-draw-2"/>
+      <!-- Counter edge face -->
+      <rect x="30" y="358" width="620" height="14" fill="url(#hMarbleEdge)"/>
+      <!-- Counter front shadow line -->
+      <line x1="30" y1="372" x2="650" y2="372" stroke="#0A0806" stroke-width="2" opacity=".4"/>
+      <!-- Marble veining -->
+      <path d="M80 330 Q140 338 200 332 Q240 328 300 336 Q360 342 420 333" stroke="white" stroke-width=".6" opacity=".18" fill="none" class="h-fade"/>
+      <path d="M150 355 Q210 347 280 352 Q340 356 410 349 Q460 344 530 351" stroke="white" stroke-width=".4" opacity=".12" fill="none" class="h-fade"/>
+      <path d="M350 328 Q390 335 440 330 Q490 325 550 332" stroke="white" stroke-width=".5" opacity=".14" fill="none" class="h-fade"/>
+      <path d="M60 345 Q90 340 130 346" stroke="#C8C0B0" stroke-width=".4" opacity=".2" fill="none" class="h-fade"/>
+
+      <!-- ══════════════════════════════════
+           BASE CABINETS  (y372–700)
+      ══════════════════════════════════ -->
+      <!-- ── LEFT base – 3 drawer unit ── -->
+      <rect x="40" y="372" width="188" height="310" fill="url(#hWood3)" class="h-draw-2" stroke="#C9A96E" stroke-width=".5" opacity=".7"/>
+      <!-- Drawer 1 tall -->
+      <rect x="48" y="380" width="172" height="60" fill="url(#hWood1)" class="h-draw-3" stroke="#C9A96E" stroke-width=".5" opacity=".75"/>
+      <rect x="56" y="388" width="156" height="44" rx=".5" stroke="#C9A96E" stroke-width=".5" opacity=".45" class="h-draw-3"/>
+      <rect x="62" y="394" width="144" height="32" rx=".5" stroke="#C9A96E" stroke-width=".3" opacity=".25" class="h-draw-3"/>
+      <rect x="104" y="406" width="72" height="6" rx="3" fill="url(#hGoldH)" filter="url(#hGlow)" class="h-fade"/>
+      <!-- Drawer 2 -->
+      <rect x="48" y="442" width="172" height="50" fill="url(#hWood1)" class="h-draw-4" stroke="#C9A96E" stroke-width=".5" opacity=".75"/>
+      <rect x="56" y="449" width="156" height="36" rx=".5" stroke="#C9A96E" stroke-width=".5" opacity=".45" class="h-draw-4"/>
+      <rect x="62" y="455" width="144" height="24" rx=".5" stroke="#C9A96E" stroke-width=".3" opacity=".25" class="h-draw-4"/>
+      <rect x="104" y="464" width="72" height="5" rx="2.5" fill="url(#hGoldH)" filter="url(#hGlow)" class="h-fade"/>
+      <!-- Drawer 3 -->
+      <rect x="48" y="494" width="172" height="50" fill="url(#hWood1)" class="h-draw-4" stroke="#C9A96E" stroke-width=".5" opacity=".75"/>
+      <rect x="56" y="501" width="156" height="36" rx=".5" stroke="#C9A96E" stroke-width=".5" opacity=".45" class="h-draw-4"/>
+      <rect x="62" y="507" width="144" height="24" rx=".5" stroke="#C9A96E" stroke-width=".3" opacity=".25" class="h-draw-4"/>
+      <rect x="104" y="516" width="72" height="5" rx="2.5" fill="url(#hGoldH)" filter="url(#hGlow)" class="h-fade"/>
+      <!-- Drawer 4 -->
+      <rect x="48" y="546" width="172" height="50" fill="url(#hWood1)" class="h-draw-5" stroke="#C9A96E" stroke-width=".5" opacity=".75"/>
+      <rect x="56" y="553" width="156" height="36" rx=".5" stroke="#C9A96E" stroke-width=".5" opacity=".45" class="h-draw-5"/>
+      <rect x="62" y="559" width="144" height="24" rx=".5" stroke="#C9A96E" stroke-width=".3" opacity=".25" class="h-draw-5"/>
+      <rect x="104" y="568" width="72" height="5" rx="2.5" fill="url(#hGoldH)" filter="url(#hGlow)" class="h-fade-2"/>
+      <!-- Drawer 5 -->
+      <rect x="48" y="598" width="172" height="76" fill="url(#hWood1)" class="h-draw-5" stroke="#C9A96E" stroke-width=".5" opacity=".75"/>
+      <rect x="56" y="606" width="156" height="60" rx=".5" stroke="#C9A96E" stroke-width=".5" opacity=".45" class="h-draw-5"/>
+      <rect x="62" y="612" width="144" height="48" rx=".5" stroke="#C9A96E" stroke-width=".3" opacity=".25" class="h-draw-5"/>
+      <rect x="104" y="633" width="72" height="5" rx="2.5" fill="url(#hGoldH)" filter="url(#hGlow)" class="h-fade-2"/>
+
+      <!-- ── CENTRE base – sink unit ── -->
+      <rect x="230" y="372" width="220" height="310" fill="url(#hWood3)" class="h-draw-2" stroke="#C9A96E" stroke-width=".5" opacity=".7"/>
+      <!-- Sink basin recessed in countertop -->
+      <rect x="270" y="340" width="140" height="22" rx="2" fill="url(#hSink)" class="h-fade"/>
+      <rect x="274" y="343" width="132" height="16" rx="1.5" fill="#0A0A0A" opacity=".9" class="h-fade"/>
+      <!-- Faucet base -->
+      <rect x="332" y="330" width="16" height="14" rx="2" fill="#2A2A2A" class="h-fade"/>
+      <!-- Faucet neck -->
+      <path d="M340 330 Q340 314 360 308" stroke="#3A3A3A" stroke-width="4" fill="none" stroke-linecap="round" class="h-fade"/>
+      <path d="M340 330 Q340 314 360 308" stroke="#C9A96E" stroke-width="1.2" fill="none" stroke-linecap="round" opacity=".6" class="h-fade"/>
+      <!-- Faucet spout end -->
+      <circle cx="360" cy="307" r="4" fill="#2A2A2A" class="h-fade"/>
+      <!-- Door panel under sink (two panel doors) -->
+      <rect x="238" y="380" width="96" height="294" fill="url(#hWood2)" class="h-draw-3" stroke="#C9A96E" stroke-width=".5" opacity=".75"/>
+      <rect x="246" y="390" width="80" height="274" rx="1" stroke="#C9A96E" stroke-width=".5" opacity=".45" class="h-draw-4"/>
+      <rect x="252" y="396" width="68" height="262" rx="1" stroke="#C9A96E" stroke-width=".3" opacity=".25" class="h-draw-4"/>
+      <rect x="330" y="380" width="112" height="294" fill="url(#hWood2)" class="h-draw-3" stroke="#C9A96E" stroke-width=".5" opacity=".75"/>
+      <rect x="338" y="390" width="96" height="274" rx="1" stroke="#C9A96E" stroke-width=".5" opacity=".45" class="h-draw-4"/>
+      <rect x="344" y="396" width="84" height="262" rx="1" stroke="#C9A96E" stroke-width=".3" opacity=".25" class="h-draw-4"/>
+      <!-- Door handles vertical bar pulls -->
+      <rect x="330" y="512" width="5" height="40" rx="2.5" fill="url(#hGoldV)" filter="url(#hGlow)" class="h-fade"/>
+      <rect x="335" y="512" width="5" height="40" rx="2.5" fill="url(#hGoldV)" filter="url(#hGlow)" class="h-fade"/>
+
+      <!-- ── RIGHT base – panel door unit ── -->
+      <rect x="452" y="372" width="188" height="310" fill="url(#hWood3)" class="h-draw-2" stroke="#C9A96E" stroke-width=".5" opacity=".7"/>
+      <!-- Two tall panel doors -->
+      <rect x="460" y="380" width="84" height="294" fill="url(#hWood2)" class="h-draw-3" stroke="#C9A96E" stroke-width=".5" opacity=".75"/>
+      <rect x="468" y="390" width="68" height="274" rx="1" stroke="#C9A96E" stroke-width=".5" opacity=".45" class="h-draw-4"/>
+      <rect x="474" y="396" width="56" height="262" rx="1" stroke="#C9A96E" stroke-width=".3" opacity=".25" class="h-draw-4"/>
+      <!-- Inner double inset detail -->
+      <rect x="480" y="404" width="44" height="122" rx=".5" stroke="#C9A96E" stroke-width=".3" opacity=".18" class="h-draw-5"/>
+      <rect x="480" y="534" width="44" height="122" rx=".5" stroke="#C9A96E" stroke-width=".3" opacity=".18" class="h-draw-5"/>
+      <!-- Right door -->
+      <rect x="548" y="380" width="84" height="294" fill="url(#hWood2)" class="h-draw-3" stroke="#C9A96E" stroke-width=".5" opacity=".75"/>
+      <rect x="556" y="390" width="68" height="274" rx="1" stroke="#C9A96E" stroke-width=".5" opacity=".45" class="h-draw-4"/>
+      <rect x="562" y="396" width="56" height="262" rx="1" stroke="#C9A96E" stroke-width=".3" opacity=".25" class="h-draw-4"/>
+      <rect x="568" y="404" width="44" height="122" rx=".5" stroke="#C9A96E" stroke-width=".3" opacity=".18" class="h-draw-5"/>
+      <rect x="568" y="534" width="44" height="122" rx=".5" stroke="#C9A96E" stroke-width=".3" opacity=".18" class="h-draw-5"/>
+      <!-- Handles -->
+      <rect x="540" y="514" width="5" height="40" rx="2.5" fill="url(#hGoldV)" filter="url(#hGlow)" class="h-fade"/>
+      <rect x="547" y="514" width="5" height="40" rx="2.5" fill="url(#hGoldV)" filter="url(#hGlow)" class="h-fade"/>
+
+      <!-- ══════════════════════════════════
+           TOEKICK + FLOOR
+      ══════════════════════════════════ -->
+      <rect x="50"  y="682" width="580" height="18" fill="#0C0A07" class="h-draw-5" stroke="#C9A96E" stroke-width=".3" opacity=".4"/>
+      <!-- Floor line -->
+      <line x1="0" y1="700" x2="680" y2="700" stroke="#C9A96E" stroke-width=".4" opacity=".15"/>
+
+      <!-- ══════════════════════════════════
+           COUNTERTOP OBJECTS
+      ══════════════════════════════════ -->
+      <!-- Left countertop – cutting board -->
+      <rect x="60" y="314" width="80" height="10" rx="1" fill="#2A1E12" opacity=".7" class="h-fade"/>
+      <rect x="62" y="315" width="76" height="8" rx=".5" stroke="#C9A96E" stroke-width=".4" opacity=".3" class="h-fade"/>
+      <!-- Knife block hint -->
+      <rect x="155" y="302" width="18" height="24" rx="1" fill="#1E1810" opacity=".8" class="h-fade"/>
+      <line x1="158" y1="302" x2="158" y2="316" stroke="#C9A96E" stroke-width=".4" opacity=".2" class="h-fade"/>
+      <line x1="163" y1="302" x2="163" y2="318" stroke="#C9A96E" stroke-width=".4" opacity=".2" class="h-fade"/>
+      <line x1="168" y1="302" x2="168" y2="320" stroke="#C9A96E" stroke-width=".4" opacity=".2" class="h-fade"/>
+      <!-- Right countertop – small potted plant -->
+      <ellipse cx="560" cy="326" rx="18" ry="4" fill="#1A1410" opacity=".6" class="h-fade-2"/>
+      <path d="M552 325 Q550 308 555 298 Q560 292 565 298 Q570 308 568 325" fill="#1E2818" opacity=".5" class="h-fade-2"/>
+      <path d="M556 318 Q548 305 552 295" stroke="#2A3820" stroke-width="1.2" opacity=".4" class="h-fade-2"/>
+      <path d="M564 314 Q574 303 570 293" stroke="#2A3820" stroke-width="1.2" opacity=".4" class="h-fade-2"/>
+      <!-- Pendant lights hanging from ceiling -->
+      <line x1="134" y1="0" x2="134" y2="50" stroke="#C9A96E" stroke-width=".6" opacity=".25" class="h-draw"/>
+      <ellipse cx="134" cy="54" rx="10" ry="6" stroke="#C9A96E" stroke-width=".6" opacity=".3" class="h-fade"/>
+      <ellipse cx="134" cy="52" rx="6" ry="3" fill="#DFC08A" opacity=".12" class="h-fade"/>
+      <line x1="546" y1="0" x2="546" y2="50" stroke="#C9A96E" stroke-width=".6" opacity=".25" class="h-draw"/>
+      <ellipse cx="546" cy="54" rx="10" ry="6" stroke="#C9A96E" stroke-width=".6" opacity=".3" class="h-fade"/>
+      <ellipse cx="546" cy="52" rx="6" ry="3" fill="#DFC08A" opacity=".12" class="h-fade"/>
+    </svg>
+  </div>
   <div class="hero-content">
     <div class="hero-eyebrow"><div class="eyebrow-line"></div><span>Luxury Custom Millwork</span></div>
     <h1 class="hero-title">Where craft<br>meets <em>vision</em></h1>
