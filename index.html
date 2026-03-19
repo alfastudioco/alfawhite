@@ -72,7 +72,7 @@
   .tag-line { width: 48px; height: 1px; background: var(--gold); opacity: .5; }
   .section-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(40px,5vw,64px); font-weight: 300; line-height: 1.1; color: var(--text-heading); }
   .section-title em { font-style: italic; color: var(--gold-light); }
-  .section-desc { font-size: 15px; font-weight: 300; letter-spacing: .06em; color: var(--text-body); line-height: 2; max-width: 340px; text-align: right; }
+  .section-desc { font-size: 14px; font-weight: 300; letter-spacing: .06em; color: var(--text-muted); line-height: 1.9; max-width: 280px; text-align: right; border-right: 1px solid rgba(201,169,110,.3); padding-right: 24px; align-self: flex-end; }
   .services { padding: 140px 56px; background: var(--bg-primary); }
   .services-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 2px; background: var(--border); }
   .service-card { background: var(--bg-primary); padding: 52px 40px; position: relative; overflow: hidden; transition: all .5s var(--transition); cursor: none; }
@@ -270,7 +270,7 @@
     .form-row { grid-template-columns:1fr; }
     .footer-top { grid-template-columns:1fr; }
     .section-header { flex-direction:column; align-items:flex-start; gap:24px; }
-    .section-desc { text-align:left; }
+    .section-desc { text-align:left; border-right: none; border-left: 1px solid rgba(201,169,110,.3); padding-right: 0; padding-left: 16px; }
     .hero-letter { display:none; }
   }
 </style>
@@ -607,7 +607,7 @@
     <div class="contact-details reveal reveal-delay-3">
       <div class="contact-detail"><span class="detail-label">Studio</span><span class="detail-value">954 Seton Ct.<br>Wheeling, IL 60090</span></div>
       <div class="contact-detail"><span class="detail-label">Hours</span><span class="detail-value"><br>By Appointment</span></div>
-      <div class="contact-detail"><span class="detail-label">Contact</span><span class="detail-value"><a id="contactEmail" href="#">human@alfastudio.us</a><br></span></div>
+      <div class="contact-detail"><span class="detail-label">Contact</span><span class="detail-value"><a id="contactEmail" href="#"><span class="__cf_email__" data-cfemail="7018051d111e30111c161103040514191f5e0503">[email&#160;protected]</span></a><br></span></div>
     </div>
   </div>
   <div class="contact-form reveal reveal-delay-2">
@@ -635,7 +635,7 @@
     <div><div class="footer-brand">Alfa <span>Studio</span></div><p class="footer-tagline">Luxury custom millwork for spaces that deserve nothing less than extraordinary craftsmanship.</p><div class="footer-social"><a href="#" class="social-link">IG</a><a href="#" class="social-link">HO</a><a href="#" class="social-link">PI</a><a href="#" class="social-link">LI</a></div></div>
     <div><div class="footer-col-title">Services</div><ul class="footer-links"><li><a href="#">Custom Kitchens</a></li><li><a href="#">Closets &amp; Dressing Rooms</a></li><li><a href="#">Bathroom Vanities</a></li><li><a href="#">Built-ins &amp; Media Walls</a></li><li><a href="#">Mudrooms &amp; Entry</a></li></ul></div>
     <div><div class="footer-col-title">Studio</div><ul class="footer-links"><li><a href="#">Our Philosophy</a></li><li><a href="#">The Process</a></li><li><a href="#">Portfolio</a></li><li><a href="#">Press</a></li><li><a href="#">Careers</a></li></ul></div>
-    <div><div class="footer-col-title">Connect</div><ul class="footer-links"><li><a href="#">Trade Program</a></li><li><a href="#">Schedule a Visit</a></li><li><a href="#">Project Inquiry</a></li><li><a id="footerEmail" href="#">hello@alfastudio.com</a></li><li><a href="#">+1 (212) 555 0190</a></li></ul></div>
+    <div><div class="footer-col-title">Connect</div><ul class="footer-links"><li><a href="#">Trade Program</a></li><li><a href="#">Schedule a Visit</a></li><li><a href="#">Project Inquiry</a></li><li><a id="footerEmail" href="#"><span class="__cf_email__" data-cfemail="0f676a6363604f6e63696e7c7b7a6b6660216c6062">[email&#160;protected]</span></a></li><li><a href="#">+1 (212) 555 0190</a></li></ul></div>
   </div>
   <div class="footer-bottom">
     <p class="footer-copy">&copy; 2025 Alfa Studio. All rights reserved.</p>
@@ -656,7 +656,7 @@
   </div>
 </div>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
   const cursor=document.getElementById('cursor'),ring=document.getElementById('cursorRing');
   let mx=0,my=0,rx=0,ry=0;
   document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;cursor.style.left=mx+'px';cursor.style.top=my+'px';});
@@ -701,7 +701,7 @@
   // Assemble emails so Cloudflare can't obfuscate them
   (function(){
     var c = ['human','@','alfastudio','.us'].join('');
-    var f = ['hello','@','alfastudio','.com'].join('');
+    var f = ['hello,'@','alfastudio','.com'].join('');
     var ce = document.getElementById('contactEmail');
     var fe = document.getElementById('footerEmail');
     if(ce){ ce.href = 'mailto:' + c; ce.textContent = c; }
