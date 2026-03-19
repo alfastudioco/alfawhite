@@ -90,12 +90,32 @@
   .service-arrow svg { width: 12px; height: 12px; }
   .philosophy { padding: 160px 56px; background: var(--bg-alt); display: grid; grid-template-columns: 1fr 1fr; gap: 120px; align-items: center; position: relative; overflow: hidden; }
   .philosophy::before { content: 'Craft'; position: absolute; left: -5%; top: 50%; transform: translateY(-50%); font-family: 'Cormorant Garamond', serif; font-size: 22vw; font-weight: 300; color: transparent; -webkit-text-stroke: 1px rgba(201,169,110,.04); pointer-events: none; user-select: none; }
-  .phil-img-frame { width: 100%; aspect-ratio: 3/4; background: linear-gradient(160deg,#2A2218 0%,#1A1512 100%); position: relative; overflow: hidden; }
-  .phil-img-frame::before { content: ''; position: absolute; inset: 24px; border: 1px solid rgba(201,169,110,.15); }
-  .phil-img-frame::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 40%; background: linear-gradient(to top,rgba(20,18,16,.8),transparent); }
-  .phil-texture { position: absolute; inset: 0; background: repeating-linear-gradient(90deg,transparent,transparent 48px,rgba(201,169,110,.03) 49px,rgba(201,169,110,.03) 50px),repeating-linear-gradient(0deg,transparent,transparent 48px,rgba(201,169,110,.03) 49px,rgba(201,169,110,.03) 50px); }
-  .phil-caption { position: absolute; bottom: 40px; left: 40px; z-index: 2; font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 20px; font-weight: 300; color: var(--gold-light); }
+  .phil-img-frame { width: 100%; aspect-ratio: 3/4; background: linear-gradient(160deg,#1C1810 0%,#141210 100%); position: relative; overflow: hidden; border: 1px solid rgba(201,169,110,.12); }
   .phil-accent { position: absolute; top: -24px; right: -24px; width: 120px; height: 120px; border: 1px solid rgba(201,169,110,.2); }
+  /* SVG illustration animations */
+  .phil-svg { position: absolute; inset: 0; width: 100%; height: 100%; }
+  .draw { stroke-dasharray: 1000; stroke-dashoffset: 1000; }
+  .phil-visual.visible .draw { animation: drawLine 2.4s cubic-bezier(0.4,0,0.2,1) forwards; }
+  .phil-visual.visible .draw-2 { animation: drawLine 2.4s cubic-bezier(0.4,0,0.2,1) .15s forwards; }
+  .phil-visual.visible .draw-3 { animation: drawLine 2.4s cubic-bezier(0.4,0,0.2,1) .3s forwards; }
+  .phil-visual.visible .draw-4 { animation: drawLine 2.4s cubic-bezier(0.4,0,0.2,1) .45s forwards; }
+  .phil-visual.visible .draw-5 { animation: drawLine 2.4s cubic-bezier(0.4,0,0.2,1) .6s forwards; }
+  .phil-visual.visible .draw-6 { animation: drawLine 2.4s cubic-bezier(0.4,0,0.2,1) .75s forwards; }
+  .phil-visual.visible .fade-in-dot { animation: dotPop .4s cubic-bezier(0.4,0,0.2,1) 1.8s both; }
+  .phil-visual.visible .fade-in-text { animation: fadeUpText .6s cubic-bezier(0.4,0,0.2,1) 2s both; }
+  @keyframes drawLine { to { stroke-dashoffset: 0; } }
+  @keyframes dotPop { from { opacity:0; transform:scale(0); } to { opacity:1; transform:scale(1); } }
+  @keyframes fadeUpText { from { opacity:0; transform:translateY(8px); } to { opacity:1; transform:translateY(0); } }
+  /* shimmer on the wood grain lines */
+  .grain-line { opacity: 0; }
+  .phil-visual.visible .grain-line { animation: grainFade 1s ease forwards; }
+  .phil-visual.visible .grain-line:nth-child(2) { animation-delay: .1s; }
+  .phil-visual.visible .grain-line:nth-child(3) { animation-delay: .2s; }
+  .phil-visual.visible .grain-line:nth-child(4) { animation-delay: .3s; }
+  .phil-visual.visible .grain-line:nth-child(5) { animation-delay: .4s; }
+  .phil-visual.visible .grain-line:nth-child(6) { animation-delay: .5s; }
+  .phil-visual.visible .grain-line:nth-child(7) { animation-delay: .6s; }
+  @keyframes grainFade { from { opacity:0; } to { opacity:1; } }
   .phil-content { position: relative; z-index: 2; }
   .phil-quote { font-family: 'Cormorant Garamond', serif; font-size: clamp(28px,3vw,42px); font-weight: 300; font-style: italic; line-height: 1.4; margin-bottom: 40px; color: var(--text-bright); }
   .phil-quote span { color: var(--gold); }
@@ -308,7 +328,114 @@
 </section>
 
 <section class="philosophy">
-  <div class="phil-visual reveal"><div class="phil-img-frame"><div class="phil-texture"></div><div class="phil-caption">The Art of Detail</div></div><div class="phil-accent"></div></div>
+  <div class="phil-visual reveal">
+    <div class="phil-img-frame">
+      <svg class="phil-svg" viewBox="0 0 400 540" xmlns="http://www.w3.org/2000/svg" fill="none">
+        <defs>
+          <linearGradient id="woodGrad" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0%" stop-color="#2A2010" stop-opacity="1"/>
+            <stop offset="40%" stop-color="#352818" stop-opacity="1"/>
+            <stop offset="100%" stop-color="#221A0E" stop-opacity="1"/>
+          </linearGradient>
+          <linearGradient id="woodGrad2" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0%" stop-color="#1E1810" stop-opacity="1"/>
+            <stop offset="50%" stop-color="#2C2218" stop-opacity="1"/>
+            <stop offset="100%" stop-color="#1A1410" stop-opacity="1"/>
+          </linearGradient>
+          <linearGradient id="goldSheen" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stop-color="#C9A96E" stop-opacity=".9"/>
+            <stop offset="100%" stop-color="#A07840" stop-opacity=".6"/>
+          </linearGradient>
+          <linearGradient id="shadowGrad" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#0A0806" stop-opacity="0"/>
+            <stop offset="100%" stop-color="#0A0806" stop-opacity=".7"/>
+          </linearGradient>
+          <filter id="glow">
+            <feGaussianBlur stdDeviation="2.5" result="blur"/>
+            <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+          </filter>
+        </defs>
+
+        <!-- Cabinet body -->
+        <rect x="48" y="60" width="304" height="420" rx="2" fill="url(#woodGrad)" class="draw" stroke="#C9A96E" stroke-width=".6" stroke-dasharray="1000" stroke-dashoffset="1000"/>
+
+        <!-- Wood grain lines inside cabinet -->
+        <g opacity=".18">
+          <line class="grain-line" x1="48" y1="118" x2="352" y2="115" stroke="#DFC08A" stroke-width=".8"/>
+          <line class="grain-line" x1="48" y1="162" x2="352" y2="159" stroke="#DFC08A" stroke-width=".5"/>
+          <line class="grain-line" x1="48" y1="210" x2="352" y2="207" stroke="#DFC08A" stroke-width=".9"/>
+          <line class="grain-line" x1="48" y1="285" x2="352" y2="283" stroke="#DFC08A" stroke-width=".6"/>
+          <line class="grain-line" x1="48" y1="340" x2="352" y2="338" stroke="#DFC08A" stroke-width=".7"/>
+          <line class="grain-line" x1="48" y1="395" x2="352" y2="393" stroke="#DFC08A" stroke-width=".5"/>
+          <line class="grain-line" x1="48" y1="438" x2="352" y2="436" stroke="#DFC08A" stroke-width=".8"/>
+        </g>
+
+        <!-- Top drawer unit -->
+        <rect x="58" y="70" width="284" height="72" rx="1" fill="url(#woodGrad2)" class="draw draw-2" stroke="#C9A96E" stroke-width=".5" stroke-dasharray="1000" stroke-dashoffset="1000"/>
+        <!-- Drawer divider -->
+        <line x1="200" y1="70" x2="200" y2="142" stroke="#C9A96E" stroke-width=".5" class="draw draw-2" stroke-dasharray="500" stroke-dashoffset="500"/>
+        <!-- Drawer handles -->
+        <rect x="116" y="100" width="48" height="5" rx="2.5" fill="url(#goldSheen)" class="fade-in-dot"/>
+        <rect x="236" y="100" width="48" height="5" rx="2.5" fill="url(#goldSheen)" class="fade-in-dot"/>
+
+        <!-- Middle open shelf area -->
+        <rect x="58" y="152" width="284" height="130" rx="1" fill="#110E09" class="draw draw-3" stroke="#C9A96E" stroke-width=".5" stroke-dasharray="1000" stroke-dashoffset="1000"/>
+        <!-- Shelf dividers vertical -->
+        <line x1="152" y1="152" x2="152" y2="282" stroke="#C9A96E" stroke-width=".4" opacity=".6" class="draw draw-3" stroke-dasharray="300" stroke-dashoffset="300"/>
+        <line x1="248" y1="152" x2="248" y2="282" stroke="#C9A96E" stroke-width=".4" opacity=".6" class="draw draw-3" stroke-dasharray="300" stroke-dashoffset="300"/>
+        <!-- Mid shelf line -->
+        <line x1="58" y1="217" x2="342" y2="217" stroke="#C9A96E" stroke-width=".4" opacity=".5" class="draw draw-3" stroke-dasharray="400" stroke-dashoffset="400"/>
+
+        <!-- Decorative items on shelf - left: vase silhouette -->
+        <ellipse cx="105" cy="275" rx="12" ry="4" fill="#C9A96E" opacity=".25" class="fade-in-dot"/>
+        <path d="M97 275 Q96 255 100 248 Q105 243 110 248 Q114 255 113 275" fill="#C9A96E" opacity=".2" class="fade-in-dot"/>
+        <!-- Center: stack of books -->
+        <rect x="186" y="258" width="28" height="5" rx="1" fill="#C9A96E" opacity=".3" class="fade-in-dot"/>
+        <rect x="188" y="252" width="24" height="6" rx="1" fill="#C9A96E" opacity=".2" class="fade-in-dot"/>
+        <rect x="184" y="246" width="30" height="6" rx="1" fill="#C9A96E" opacity=".25" class="fade-in-dot"/>
+        <!-- Right: small frame -->
+        <rect x="262" y="248" width="22" height="28" rx="1" stroke="#C9A96E" stroke-width=".8" opacity=".35" class="fade-in-dot"/>
+        <rect x="266" y="252" width="14" height="20" rx=".5" stroke="#C9A96E" stroke-width=".4" opacity=".2" class="fade-in-dot"/>
+
+        <!-- Lower cabinet doors -->
+        <rect x="58" y="292" width="136" height="178" rx="1" fill="url(#woodGrad2)" class="draw draw-4" stroke="#C9A96E" stroke-width=".5" stroke-dasharray="1000" stroke-dashoffset="1000"/>
+        <rect x="206" y="292" width="136" height="178" rx="1" fill="url(#woodGrad2)" class="draw draw-4" stroke="#C9A96E" stroke-width=".5" stroke-dasharray="1000" stroke-dashoffset="1000"/>
+        <!-- Door inset panels -->
+        <rect x="70" y="304" width="112" height="154" rx="1" stroke="#C9A96E" stroke-width=".4" opacity=".4" class="draw draw-5" stroke-dasharray="600" stroke-dashoffset="600"/>
+        <rect x="218" y="304" width="112" height="154" rx="1" stroke="#C9A96E" stroke-width=".4" opacity=".4" class="draw draw-5" stroke-dasharray="600" stroke-dashoffset="600"/>
+        <!-- Inner inset panels (double border detail) -->
+        <rect x="78" y="312" width="96" height="138" rx="1" stroke="#C9A96E" stroke-width=".3" opacity=".25" class="draw draw-5" stroke-dasharray="500" stroke-dashoffset="500"/>
+        <rect x="226" y="312" width="96" height="138" rx="1" stroke="#C9A96E" stroke-width=".3" opacity=".25" class="draw draw-5" stroke-dasharray="500" stroke-dashoffset="500"/>
+        <!-- Door handles -->
+        <rect x="168" y="374" width="6" height="22" rx="3" fill="url(#goldSheen)" class="fade-in-dot"/>
+        <rect x="226" y="374" width="6" height="22" rx="3" fill="url(#goldSheen)" class="fade-in-dot"/>
+
+        <!-- Toekick base -->
+        <rect x="68" y="470" width="264" height="10" rx="1" fill="#0E0C08" class="draw draw-6" stroke="#C9A96E" stroke-width=".4" stroke-dasharray="600" stroke-dashoffset="600" opacity=".8"/>
+
+        <!-- Corner accent bracket top-left -->
+        <path d="M48 80 L48 60 L68 60" stroke="#C9A96E" stroke-width="1.2" fill="none" class="draw" stroke-dasharray="100" stroke-dashoffset="100" filter="url(#glow)"/>
+        <!-- Corner accent bracket top-right -->
+        <path d="M352 80 L352 60 L332 60" stroke="#C9A96E" stroke-width="1.2" fill="none" class="draw" stroke-dasharray="100" stroke-dashoffset="100" filter="url(#glow)"/>
+        <!-- Corner accent bracket bottom-left -->
+        <path d="M48 460 L48 480 L68 480" stroke="#C9A96E" stroke-width="1.2" fill="none" class="draw-6" stroke-dasharray="100" stroke-dashoffset="100" filter="url(#glow)"/>
+        <!-- Corner accent bracket bottom-right -->
+        <path d="M352 460 L352 480 L332 480" stroke="#C9A96E" stroke-width="1.2" fill="none" class="draw-6" stroke-dasharray="100" stroke-dashoffset="100" filter="url(#glow)"/>
+
+        <!-- Measurement annotation line top -->
+        <line x1="24" y1="60" x2="24" y2="480" stroke="#C9A96E" stroke-width=".5" opacity=".3" class="draw draw-2" stroke-dasharray="600" stroke-dashoffset="600"/>
+        <line x1="18" y1="60" x2="30" y2="60" stroke="#C9A96E" stroke-width=".5" opacity=".3" class="draw draw-2" stroke-dasharray="50" stroke-dashoffset="50"/>
+        <line x1="18" y1="480" x2="30" y2="480" stroke="#C9A96E" stroke-width=".5" opacity=".3" class="draw draw-2" stroke-dasharray="50" stroke-dashoffset="50"/>
+
+        <!-- Shadow overlay at bottom -->
+        <rect x="48" y="60" width="304" height="420" fill="url(#shadowGrad)" rx="2"/>
+
+        <!-- Caption -->
+        <text x="200" y="522" text-anchor="middle" font-family="Cormorant Garamond, serif" font-size="13" font-style="italic" fill="#C9A96E" opacity=".7" class="fade-in-text">The Art of Detail</text>
+      </svg>
+    </div>
+    <div class="phil-accent"></div>
+  </div>
   <div class="phil-content">
     <div class="section-tag reveal"><div class="tag-line"></div><span>Our Philosophy</span></div>
     <blockquote class="phil-quote reveal reveal-delay-1">&ldquo;Every drawer, every joint, every surface is a <span>deliberate act</span> of making.&rdquo;</blockquote>
@@ -392,7 +519,7 @@
     <div class="contact-details reveal reveal-delay-3">
       <div class="contact-detail"><span class="detail-label">Studio</span><span class="detail-value">954 Seton Ct.<br>Wheeling, IL 60090</span></div>
       <div class="contact-detail"><span class="detail-label">Hours</span><span class="detail-value"><br>By Appointment</span></div>
-      <div class="contact-detail"><span class="detail-label">Contact</span><span class="detail-value">human@alfastudio.us<br></span></div>
+      <div class="contact-detail"><span class="detail-label">Contact</span><span class="detail-value"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="355d4058545b7554595354464140515c5a1b4046">[email&#160;protected]</a><br></span></div>
     </div>
   </div>
   <div class="contact-form reveal reveal-delay-2">
@@ -420,7 +547,7 @@
     <div><div class="footer-brand">Alfa <span>Studio</span></div><p class="footer-tagline">Luxury custom millwork for spaces that deserve nothing less than extraordinary craftsmanship.</p><div class="footer-social"><a href="#" class="social-link">IG</a><a href="#" class="social-link">HO</a><a href="#" class="social-link">PI</a><a href="#" class="social-link">LI</a></div></div>
     <div><div class="footer-col-title">Services</div><ul class="footer-links"><li><a href="#">Custom Kitchens</a></li><li><a href="#">Closets &amp; Dressing Rooms</a></li><li><a href="#">Bathroom Vanities</a></li><li><a href="#">Built-ins &amp; Media Walls</a></li><li><a href="#">Mudrooms &amp; Entry</a></li></ul></div>
     <div><div class="footer-col-title">Studio</div><ul class="footer-links"><li><a href="#">Our Philosophy</a></li><li><a href="#">The Process</a></li><li><a href="#">Portfolio</a></li><li><a href="#">Press</a></li><li><a href="#">Careers</a></li></ul></div>
-    <div><div class="footer-col-title">Connect</div><ul class="footer-links"><li><a href="#">Trade Program</a></li><li><a href="#">Schedule a Visit</a></li><li><a href="#">Project Inquiry</a></li><li><a href="#">hello@alfastudio.com</a></li><li><a href="#">+1 (212) 555 0190</a></li></ul></div>
+    <div><div class="footer-col-title">Connect</div><ul class="footer-links"><li><a href="#">Trade Program</a></li><li><a href="#">Schedule a Visit</a></li><li><a href="#">Project Inquiry</a></li><li><a href="#"><span class="__cf_email__" data-cfemail="b3dbd6dfdfdcf3d2dfd5d2c0c7c6d7dadc9dd0dcde">[email&#160;protected]</span></a></li><li><a href="#">+1 (212) 555 0190</a></li></ul></div>
   </div>
   <div class="footer-bottom">
     <p class="footer-copy">&copy; 2025 Alfa Studio. All rights reserved.</p>
@@ -441,7 +568,7 @@
   </div>
 </div>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
   const cursor=document.getElementById('cursor'),ring=document.getElementById('cursorRing');
   let mx=0,my=0,rx=0,ry=0;
   document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;cursor.style.left=mx+'px';cursor.style.top=my+'px';});
