@@ -348,7 +348,7 @@
 <section class="testimonials">
   <div class="section-tag reveal" style="justify-content:center"><div class="tag-line"></div><span>Client Words</span><div class="tag-line"></div></div>
   <blockquote class="testi-quote reveal reveal-delay-1" id="testiQuote">&ldquo;Alfa Studio transformed our kitchen into something we could never have imagined. The precision, the materials, the sheer attention to every detail &mdash; it is simply extraordinary.&rdquo;</blockquote>
-  <p class="testi-author reveal reveal-delay-2" id="testiAuthor">&mdash; Alexandra H., Manhattan Penthouse</p>
+  <p class="testi-author reveal reveal-delay-2" id="testiAuthor">&mdash; Alexandra H., Chicago, IL</p>
   <div class="testi-dots"><div class="testi-dot active" onclick="setTesti(0)"></div><div class="testi-dot" onclick="setTesti(1)"></div><div class="testi-dot" onclick="setTesti(2)"></div></div>
 </section>
 
@@ -454,9 +454,9 @@
   const obs=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible');}),{threshold:.12,rootMargin:'0px 0px -40px 0px'});
   document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
   const testis=[
-    {quote:'“Alfa Studio transformed our kitchen into something we could never have imagined. The precision, the materials, the sheer attention to every detail — it is simply extraordinary.”',author:'— Alexandra H., Manhattan Penthouse'},
-    {quote:'“Our dressing room is now the jewel of the home. Alfa’s team listened, understood our vision completely, and delivered something beyond our expectations.”',author:'— James & Cecilia R., The Hamptons'},
-    {quote:'“As a designer, I’ve worked with many millwork studios. Alfa Studio stands apart — their trade program, craftsmanship, and partnership are unmatched in the industry.”',author:'— Sophia Laurent, Laurent Interiors'}
+    {quote:'“Alfa Studio transformed our kitchen into something we could never have imagined. The precision, the materials, the sheer attention to every detail — it is simply extraordinary.”',author:'— Alexandra H., Chicago, IL'},
+    {quote:'“Our dressing room is now the jewel of the home. Alfa’s team listened, understood our vision completely, and delivered something beyond our expectations.”',author:'— James & Cecilia R., Winnetka, IL'},
+    {quote:'“As a designer, I’ve worked with many millwork studios. Alfa Studio stands apart — their trade program, craftsmanship, and partnership are unmatched in the industry.”',author:'— Sophia L., Glencoe, IL'}
   ];
   let cur=0;
   const qEl=document.getElementById('testiQuote'),aEl=document.getElementById('testiAuthor'),dots=document.querySelectorAll('.testi-dot');
