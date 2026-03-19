@@ -338,307 +338,263 @@
     <div class="hero-visual-fade-bottom"></div>
     <svg viewBox="0 0 720 960" xmlns="http://www.w3.org/2000/svg" fill="none" preserveAspectRatio="xMidYMid slice">
   <defs>
-    <linearGradient id="hWood1" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0%"   stop-color="#181210"/>
-      <stop offset="30%"  stop-color="#2E2218"/>
-      <stop offset="60%"  stop-color="#261A12"/>
-      <stop offset="100%" stop-color="#1C1410"/>
-    </linearGradient>
-    <linearGradient id="hWood2" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0%"   stop-color="#1E1610"/>
-      <stop offset="45%"  stop-color="#382C1C"/>
-      <stop offset="100%" stop-color="#201810"/>
-    </linearGradient>
-    <linearGradient id="hWood3" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0%"   stop-color="#221A12"/>
-      <stop offset="50%"  stop-color="#302416"/>
-      <stop offset="100%" stop-color="#1E1810"/>
-    </linearGradient>
-    <linearGradient id="hShelf" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%"   stop-color="#342818"/>
+    <linearGradient id="isoWood1" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%"   stop-color="#2E2418"/>
       <stop offset="100%" stop-color="#1A1410"/>
     </linearGradient>
-    <linearGradient id="hMarble" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%"   stop-color="#E2DDD4"/>
-      <stop offset="50%"  stop-color="#EDE8DF"/>
-      <stop offset="100%" stop-color="#C8C2B8"/>
+    <linearGradient id="isoWood2" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%"   stop-color="#241C12"/>
+      <stop offset="100%" stop-color="#141008"/>
     </linearGradient>
-    <linearGradient id="hMarbleEdge" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%"   stop-color="#F0EAE0"/>
-      <stop offset="100%" stop-color="#B8B2A8"/>
+    <linearGradient id="isoWood3" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%"   stop-color="#382C1C"/>
+      <stop offset="100%" stop-color="#201810"/>
     </linearGradient>
-    <linearGradient id="hGlass" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%"   stop-color="#1A2424" stop-opacity=".95"/>
-      <stop offset="100%" stop-color="#0C1414" stop-opacity=".98"/>
+    <linearGradient id="isoTop" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%"   stop-color="#3C3020"/>
+      <stop offset="100%" stop-color="#2A2016"/>
     </linearGradient>
-    <linearGradient id="hGoldH" x1="0" y1="0" x2="1" y2="0">
+    <linearGradient id="isoMarble" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%"   stop-color="#DEDAD2"/>
+      <stop offset="100%" stop-color="#C4C0B8"/>
+    </linearGradient>
+    <linearGradient id="isoGoldH" x1="0" y1="0" x2="1" y2="0">
       <stop offset="0%"   stop-color="#7A5C28"/>
       <stop offset="40%"  stop-color="#DFC08A"/>
       <stop offset="60%"  stop-color="#C9A96E"/>
       <stop offset="100%" stop-color="#7A5C28"/>
     </linearGradient>
-    <linearGradient id="hGoldV" x1="0" y1="0" x2="0" y2="1">
+    <linearGradient id="isoGoldV" x1="0" y1="0" x2="0" y2="1">
       <stop offset="0%"   stop-color="#7A5C28"/>
       <stop offset="40%"  stop-color="#DFC08A"/>
       <stop offset="60%"  stop-color="#C9A96E"/>
       <stop offset="100%" stop-color="#7A5C28"/>
     </linearGradient>
-    <linearGradient id="hSink" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%"   stop-color="#2A2A2A"/>
-      <stop offset="100%" stop-color="#0E0E0E"/>
-    </linearGradient>
-    <linearGradient id="hWall" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%"   stop-color="#0C0A08"/>
-      <stop offset="100%" stop-color="#141210"/>
-    </linearGradient>
-    <filter id="hGlow">
-      <feGaussianBlur stdDeviation="2" result="b"/>
+    <filter id="isoGlow">
+      <feGaussianBlur stdDeviation="2.5" result="b"/>
       <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
-    </filter>
-    <filter id="hShadow">
-      <feDropShadow dx="0" dy="3" stdDeviation="5" flood-color="#000" flood-opacity=".5"/>
     </filter>
   </defs>
 
-  <!-- Wall -->
-  <rect x="0" y="0" width="720" height="960" fill="url(#hWall)"/>
-  <!-- Subtle wall panel line -->
-  <line x1="0" y1="480" x2="720" y2="480" stroke="#C9A96E" stroke-width=".3" opacity=".1"/>
+  <!-- ═══════════════════════════════════
+       SCENE: isometric kitchen wall unit
+       Vanishing point top-right
+       3 visible faces: top / front / side
+  ═══════════════════════════════════ -->
 
-  <!-- ══════════════════════════════
-       UPPER CABINETS  (y40–310)
-       Height: 270px — clearly defined
-  ══════════════════════════════ -->
-  <!-- Crown moulding / soffit -->
-  <rect x="30" y="30" width="660" height="22" fill="url(#hWood1)" class="h-draw" stroke="#C9A96E" stroke-width=".6" opacity=".8"/>
-  <!-- Soffit shadow -->
-  <rect x="30" y="50" width="660" height="8" fill="#080604" opacity=".6"/>
+  <!-- ── UPPER CABINET CARCASS ─────────────────
+       Top face  (lightest)
+       Front face (mid)
+       Right face (darkest)
+  ──────────────────────────────────────────── -->
 
-  <!-- Pendant light left -->
-  <line x1="155" y1="30" x2="155" y2="54" stroke="#C9A96E" stroke-width=".8" opacity=".4" class="h-draw"/>
-  <ellipse cx="155" cy="60" rx="12" ry="7" stroke="#C9A96E" stroke-width=".8" opacity=".5" class="h-fade"/>
-  <ellipse cx="155" cy="57" rx="7"  ry="3.5" fill="#DFC08A" opacity=".2" class="h-fade"/>
-  <!-- Pendant light right -->
-  <line x1="565" y1="30" x2="565" y2="54" stroke="#C9A96E" stroke-width=".8" opacity=".4" class="h-draw"/>
-  <ellipse cx="565" cy="60" rx="12" ry="7" stroke="#C9A96E" stroke-width=".8" opacity=".5" class="h-fade"/>
-  <ellipse cx="565" cy="57" rx="7"  ry="3.5" fill="#DFC08A" opacity=".2" class="h-fade"/>
+  <!-- Top face of upper cabinet -->
+  <polygon points="60,220 460,100 680,180 280,300" fill="url(#isoTop)" class="h-draw" stroke="#C9A96E" stroke-width=".6" opacity=".85"/>
+  <!-- Light highlight on top edge -->
+  <line x1="60" y1="220" x2="460" y2="100" stroke="#C9A96E" stroke-width="1" opacity=".5" class="h-draw"/>
+  <line x1="460" y1="100" x2="680" y2="180" stroke="#C9A96E" stroke-width=".6" opacity=".35" class="h-draw"/>
 
-  <!-- ── LEFT upper glass cabinet (x30–240) ── -->
-  <!-- Box -->
-  <rect x="30"  y="58" width="210" height="252" fill="url(#hWood2)" class="h-draw" stroke="#C9A96E" stroke-width=".6" opacity=".85"/>
-  <!-- Door frame outer -->
-  <rect x="42"  y="68" width="186" height="232" rx="1.5" stroke="#C9A96E" stroke-width="1" opacity=".7" class="h-draw-2"/>
-  <!-- Door frame inner -->
-  <rect x="50"  y="76" width="170" height="216" rx="1"   stroke="#C9A96E" stroke-width=".5" opacity=".4" class="h-draw-2"/>
-  <!-- Glass fill -->
-  <rect x="51"  y="77" width="168" height="214" fill="url(#hGlass)"/>
-  <!-- Glass sheen -->
-  <rect x="51"  y="77" width="40"  height="214" fill="white" opacity=".025"/>
-  <!-- Horizontal muntin (glass bar) at 50% -->
-  <rect x="42"  y="170" width="186" height="7" fill="url(#hWood2)" stroke="#C9A96E" stroke-width=".5" opacity=".75" class="h-draw-3"/>
-  <!-- Vertical muntin -->
-  <rect x="131" y="68"  width="7" height="232" fill="url(#hWood2)" stroke="#C9A96E" stroke-width=".4" opacity=".65" class="h-draw-3"/>
-  <!-- Handle -->
-  <rect x="235" y="178" width="5" height="36" rx="2.5" fill="url(#hGoldV)" filter="url(#hGlow)" class="h-fade"/>
+  <!-- Front face of upper cabinet -->
+  <polygon points="60,220 280,300 280,520 60,440" fill="url(#isoWood1)" class="h-draw" stroke="#C9A96E" stroke-width=".6" opacity=".8"/>
 
-  <!-- Items top-left pane: wine glasses -->
-  <path d="M72 105 Q68 128 64 142 L92 142 Q88 128 84 105 Z"  stroke="#C9A96E" stroke-width=".8" opacity=".28" class="h-fade-2"/>
-  <line x1="78"  y1="142" x2="78"  y2="156" stroke="#C9A96E" stroke-width=".7" opacity=".28" class="h-fade-2"/>
-  <line x1="68"  y1="156" x2="88"  y2="156" stroke="#C9A96E" stroke-width=".7" opacity=".28" class="h-fade-2"/>
-  <path d="M100 105 Q96 128 92 142 L120 142 Q116 128 112 105 Z" stroke="#C9A96E" stroke-width=".8" opacity=".28" class="h-fade-2"/>
-  <line x1="106" y1="142" x2="106" y2="156" stroke="#C9A96E" stroke-width=".7" opacity=".28" class="h-fade-2"/>
-  <line x1="96"  y1="156" x2="116" y2="156" stroke="#C9A96E" stroke-width=".7" opacity=".28" class="h-fade-2"/>
-  <!-- Items top-right pane: books upright -->
-  <rect x="148" y="110" width="9"  height="57" rx=".5" fill="#C9A96E" opacity=".18" class="h-fade-2"/>
-  <rect x="159" y="106" width="11" height="61" rx=".5" fill="#C9A96E" opacity=".14" class="h-fade-2"/>
-  <rect x="172" y="112" width="8"  height="55" rx=".5" fill="#C9A96E" opacity=".20" class="h-fade-2"/>
-  <rect x="182" y="108" width="10" height="59" rx=".5" fill="#C9A96E" opacity=".15" class="h-fade-2"/>
-  <!-- Items bottom-left: stacked plates -->
-  <ellipse cx="85"  cy="278" rx="32" ry="5" stroke="#C9A96E" stroke-width=".7" opacity=".25" class="h-fade-2"/>
-  <ellipse cx="85"  cy="272" rx="32" ry="5" stroke="#C9A96E" stroke-width=".6" opacity=".18" class="h-fade-2"/>
-  <ellipse cx="85"  cy="266" rx="32" ry="5" stroke="#C9A96E" stroke-width=".5" opacity=".13" class="h-fade-2"/>
-  <!-- Items bottom-right: small vase -->
-  <path d="M155 278 Q150 262 151 250 Q154 242 163 242 Q172 242 175 250 Q176 262 171 278 Z" stroke="#C9A96E" stroke-width=".8" opacity=".3" class="h-fade-2"/>
-  <ellipse cx="163" cy="278" rx="9" ry="2.5" fill="#C9A96E" opacity=".15" class="h-fade-2"/>
+  <!-- Right face of upper cabinet -->
+  <polygon points="280,300 680,180 680,400 280,520" fill="url(#isoWood2)" class="h-draw" stroke="#C9A96E" stroke-width=".5" opacity=".7"/>
 
-  <!-- ── CENTRE upper solid panel (x242–478) ── -->
-  <rect x="242" y="58" width="236" height="252" fill="url(#hWood1)" class="h-draw" stroke="#C9A96E" stroke-width=".6" opacity=".85"/>
-  <!-- Reeded vertical grooves — 12 reeds, evenly spaced -->
-  <line x1="262" y1="70" x2="262" y2="302" stroke="#C9A96E" stroke-width=".5" opacity=".22" class="h-draw-3"/>
-  <line x1="282" y1="70" x2="282" y2="302" stroke="#C9A96E" stroke-width=".5" opacity=".22" class="h-draw-3"/>
-  <line x1="302" y1="70" x2="302" y2="302" stroke="#C9A96E" stroke-width=".5" opacity=".22" class="h-draw-3"/>
-  <line x1="322" y1="70" x2="322" y2="302" stroke="#C9A96E" stroke-width=".5" opacity=".22" class="h-draw-3"/>
-  <line x1="342" y1="70" x2="342" y2="302" stroke="#C9A96E" stroke-width=".5" opacity=".22" class="h-draw-3"/>
-  <line x1="362" y1="70" x2="362" y2="302" stroke="#C9A96E" stroke-width=".5" opacity=".22" class="h-draw-3"/>
-  <line x1="382" y1="70" x2="382" y2="302" stroke="#C9A96E" stroke-width=".5" opacity=".22" class="h-draw-3"/>
-  <line x1="402" y1="70" x2="402" y2="302" stroke="#C9A96E" stroke-width=".5" opacity=".22" class="h-draw-3"/>
-  <line x1="422" y1="70" x2="422" y2="302" stroke="#C9A96E" stroke-width=".5" opacity=".22" class="h-draw-3"/>
-  <line x1="442" y1="70" x2="442" y2="302" stroke="#C9A96E" stroke-width=".5" opacity=".22" class="h-draw-3"/>
-  <line x1="462" y1="70" x2="462" y2="302" stroke="#C9A96E" stroke-width=".5" opacity=".22" class="h-draw-3"/>
-  <!-- Inset panel border -->
-  <rect x="252" y="72" width="216" height="228" rx="1" stroke="#C9A96E" stroke-width=".7" opacity=".45" class="h-draw-3"/>
-  <rect x="260" y="80" width="200" height="212" rx="1" stroke="#C9A96E" stroke-width=".4" opacity=".22" class="h-draw-4"/>
+  <!-- ── UPPER CABINET DOOR PANELS (front face) ──
+       Two doors side by side with inset reveals
+  ──────────────────────────────────────────────── -->
+  <!-- Door divider stile (centre vertical) -->
+  <polygon points="166,296 170,298 170,516 166,514" fill="#141008" stroke="#C9A96E" stroke-width=".4" opacity=".5" class="h-draw-2"/>
 
-  <!-- ── RIGHT upper glass cabinet (x480–690) ── -->
-  <rect x="480" y="58" width="210" height="252" fill="url(#hWood2)" class="h-draw" stroke="#C9A96E" stroke-width=".6" opacity=".85"/>
-  <rect x="492" y="68" width="186" height="232" rx="1.5" stroke="#C9A96E" stroke-width="1" opacity=".7" class="h-draw-2"/>
-  <rect x="500" y="76" width="170" height="216" rx="1"   stroke="#C9A96E" stroke-width=".5" opacity=".4" class="h-draw-2"/>
-  <rect x="501" y="77" width="168" height="214" fill="url(#hGlass)"/>
-  <rect x="501" y="77" width="40"  height="214" fill="white" opacity=".025"/>
-  <rect x="492" y="170" width="186" height="7" fill="url(#hWood2)" stroke="#C9A96E" stroke-width=".5" opacity=".75" class="h-draw-3"/>
-  <rect x="581" y="68"  width="7" height="232" fill="url(#hWood2)" stroke="#C9A96E" stroke-width=".4" opacity=".65" class="h-draw-3"/>
-  <rect x="479" y="178" width="5" height="36" rx="2.5" fill="url(#hGoldV)" filter="url(#hGlow)" class="h-fade"/>
-  <!-- Wine glasses top-left pane -->
-  <path d="M514 105 Q510 128 506 142 L534 142 Q530 128 526 105 Z" stroke="#C9A96E" stroke-width=".8" opacity=".28" class="h-fade-2"/>
-  <line x1="520" y1="142" x2="520" y2="156" stroke="#C9A96E" stroke-width=".7" opacity=".28" class="h-fade-2"/>
-  <line x1="510" y1="156" x2="530" y2="156" stroke="#C9A96E" stroke-width=".7" opacity=".28" class="h-fade-2"/>
-  <path d="M542 105 Q538 128 534 142 L562 142 Q558 128 554 105 Z" stroke="#C9A96E" stroke-width=".8" opacity=".28" class="h-fade-2"/>
-  <line x1="548" y1="142" x2="548" y2="156" stroke="#C9A96E" stroke-width=".7" opacity=".28" class="h-fade-2"/>
-  <line x1="538" y1="156" x2="558" y2="156" stroke="#C9A96E" stroke-width=".7" opacity=".28" class="h-fade-2"/>
-  <!-- Books top-right pane -->
-  <rect x="598" y="108" width="9"  height="59" rx=".5" fill="#C9A96E" opacity=".18" class="h-fade-2"/>
-  <rect x="609" y="104" width="11" height="63" rx=".5" fill="#C9A96E" opacity=".14" class="h-fade-2"/>
-  <rect x="622" y="110" width="8"  height="57" rx=".5" fill="#C9A96E" opacity=".20" class="h-fade-2"/>
-  <rect x="632" y="106" width="10" height="61" rx=".5" fill="#C9A96E" opacity=".15" class="h-fade-2"/>
-  <!-- Stacked plates bottom -->
-  <ellipse cx="535" cy="278" rx="32" ry="5" stroke="#C9A96E" stroke-width=".7" opacity=".25" class="h-fade-2"/>
-  <ellipse cx="535" cy="272" rx="32" ry="5" stroke="#C9A96E" stroke-width=".6" opacity=".18" class="h-fade-2"/>
-  <ellipse cx="613" cy="278" rx="30" ry="5" stroke="#C9A96E" stroke-width=".7" opacity=".25" class="h-fade-2"/>
+  <!-- LEFT door outer frame -->
+  <polygon points="72,292 162,322 162,516 72,486" stroke="#C9A96E" stroke-width=".7" opacity=".55" class="h-draw-2"/>
+  <!-- LEFT door inner inset -->
+  <polygon points="82,300 152,326 152,508 82,482" stroke="#C9A96E" stroke-width=".4" opacity=".3" class="h-draw-3"/>
+  <!-- LEFT door second inset (luxury double reveal) -->
+  <polygon points="90,307 144,330 144,500 90,477" stroke="#C9A96E" stroke-width=".25" opacity=".18" class="h-draw-3"/>
 
-  <!-- ══════════════════════════════
-       MARBLE COUNTERTOP  (y310–360)
-       Height: 50px — thick slab feel
-  ══════════════════════════════ -->
-  <rect x="20"  y="310" width="680" height="40" fill="url(#hMarble)" filter="url(#hShadow)"/>
-  <!-- Counter face -->
-  <rect x="20"  y="348" width="680" height="14" fill="url(#hMarbleEdge)"/>
-  <!-- Counter shadow line -->
-  <line x1="20" y1="362" x2="700" y2="362" stroke="#080604" stroke-width="2.5" opacity=".5"/>
-  <!-- Marble veining -->
-  <path d="M60 316 Q140 326 230 318 Q310 312 400 322 Q480 330 570 320 Q620 315 680 322" stroke="white" stroke-width=".7" opacity=".2"  fill="none" class="h-fade"/>
-  <path d="M100 342 Q190 334 290 340 Q380 345 470 337 Q550 330 650 338" stroke="white" stroke-width=".5" opacity=".14" fill="none" class="h-fade"/>
-  <path d="M300 314 Q360 322 430 316 Q500 310 580 318" stroke="#D0C8BC" stroke-width=".4" opacity=".18" fill="none" class="h-fade"/>
-  <!-- Under-counter shadow -->
-  <rect x="20" y="360" width="680" height="20" fill="#080604" opacity=".4"/>
+  <!-- RIGHT door outer frame -->
+  <polygon points="174,302 270,332 270,516 174,486" stroke="#C9A96E" stroke-width=".7" opacity=".55" class="h-draw-2"/>
+  <!-- RIGHT door inner inset -->
+  <polygon points="184,310 260,336 260,508 184,482" stroke="#C9A96E" stroke-width=".4" opacity=".3" class="h-draw-3"/>
+  <!-- RIGHT door second inset -->
+  <polygon points="192,317 252,340 252,500 192,474" stroke="#C9A96E" stroke-width=".25" opacity=".18" class="h-draw-3"/>
 
-  <!-- ══════════════════════════════
-       BASE CABINETS  (y380–780)
-       Height: 400px — dominant mass
-  ══════════════════════════════ -->
+  <!-- LEFT door handle — small vertical bar pull -->
+  <polygon points="158,393 163,395 163,415 158,413" fill="url(#isoGoldV)" filter="url(#isoGlow)" class="h-fade"/>
+  <!-- RIGHT door handle -->
+  <polygon points="170,398 175,400 175,420 170,418" fill="url(#isoGoldV)" filter="url(#isoGlow)" class="h-fade"/>
 
-  <!-- ── LEFT base: 5-drawer bank ── -->
-  <rect x="30"  y="380" width="210" height="392" fill="url(#hWood3)" class="h-draw-2" stroke="#C9A96E" stroke-width=".6" opacity=".75"/>
+  <!-- ── REEDED PANEL INSERTS on right face ──
+       Vertical reeds across the right cabinet side
+  ──────────────────────────────────────────── -->
+  <polygon points="290,186 680,180 680,302 290,308" fill="url(#isoWood3)" stroke="#C9A96E" stroke-width=".4" opacity=".5" class="h-draw-2"/>
+  <!-- Reed lines on right face -->
+  <line x1="330" y1="184" x2="330" y2="307" stroke="#C9A96E" stroke-width=".5" opacity=".2" class="h-draw-3"/>
+  <line x1="370" y1="183" x2="370" y2="306" stroke="#C9A96E" stroke-width=".5" opacity=".2" class="h-draw-3"/>
+  <line x1="410" y1="182" x2="410" y2="305" stroke="#C9A96E" stroke-width=".5" opacity=".2" class="h-draw-3"/>
+  <line x1="450" y1="181" x2="450" y2="304" stroke="#C9A96E" stroke-width=".5" opacity=".2" class="h-draw-3"/>
+  <line x1="490" y1="180" x2="490" y2="303" stroke="#C9A96E" stroke-width=".5" opacity=".2" class="h-draw-3"/>
+  <line x1="530" y1="180" x2="530" y2="302" stroke="#C9A96E" stroke-width=".5" opacity=".2" class="h-draw-3"/>
+  <line x1="570" y1="179" x2="570" y2="302" stroke="#C9A96E" stroke-width=".5" opacity=".2" class="h-draw-3"/>
+  <line x1="610" y1="179" x2="610" y2="301" stroke="#C9A96E" stroke-width=".5" opacity=".2" class="h-draw-3"/>
+  <line x1="650" y1="179" x2="650" y2="301" stroke="#C9A96E" stroke-width=".5" opacity=".2" class="h-draw-3"/>
+  <!-- Reed highlight on right face - right panel inset border -->
+  <polygon points="298,188 670,182 670,298 298,304" stroke="#C9A96E" stroke-width=".5" opacity=".35" class="h-draw-3"/>
 
-  <!-- Drawer 1 — tall feature drawer -->
-  <rect x="40"  y="390" width="190" height="72" fill="url(#hWood2)" class="h-draw-3" stroke="#C9A96E" stroke-width=".6" opacity=".8"/>
-  <rect x="50"  y="400" width="170" height="52" rx="1" stroke="#C9A96E" stroke-width=".6" opacity=".5" class="h-draw-3"/>
-  <rect x="58"  y="408" width="154" height="36" rx=".5" stroke="#C9A96E" stroke-width=".3" opacity=".28" class="h-draw-4"/>
-  <rect x="110" y="422" width="80"  height="7"  rx="3.5" fill="url(#hGoldH)" filter="url(#hGlow)" class="h-fade"/>
+  <!-- ══════════════════════════════════════
+       EXPLODED FLOATING SHELF
+       Pulled up and out from the carcass
+       with dashed ghost lines showing origin
+  ══════════════════════════════════════ -->
+  <!-- Ghost / origin position lines (dashed) -->
+  <line x1="60" y1="320" x2="60" y2="220" stroke="#C9A96E" stroke-width=".5" stroke-dasharray="5 4" opacity=".25" class="h-draw-2"/>
+  <line x1="280" y1="400" x2="280" y2="300" stroke="#C9A96E" stroke-width=".5" stroke-dasharray="5 4" opacity=".25" class="h-draw-2"/>
+  <line x1="680" y1="310" x2="680" y2="180" stroke="#C9A96E" stroke-width=".5" stroke-dasharray="5 4" opacity=".2" class="h-draw-2"/>
 
-  <!-- Drawer 2 -->
-  <rect x="40"  y="464" width="190" height="58" fill="url(#hWood2)" class="h-draw-3" stroke="#C9A96E" stroke-width=".6" opacity=".8"/>
-  <rect x="50"  y="472" width="170" height="42" rx="1" stroke="#C9A96E" stroke-width=".6" opacity=".5" class="h-draw-4"/>
-  <rect x="58"  y="479" width="154" height="28" rx=".5" stroke="#C9A96E" stroke-width=".3" opacity=".28" class="h-draw-4"/>
-  <rect x="110" y="490" width="80"  height="6"  rx="3"   fill="url(#hGoldH)" filter="url(#hGlow)" class="h-fade"/>
+  <!-- ══════════════════════════════════════
+       MARBLE COUNTERTOP
+       Exploded up — floating above base cabs
+  ══════════════════════════════════════ -->
+  <!-- Counter top face -->
+  <polygon points="40,530 450,400 700,490 290,620" fill="url(#isoMarble)" class="h-draw-2" stroke="#C9A96E" stroke-width=".5" opacity=".6"/>
+  <!-- Counter front edge face -->
+  <polygon points="40,530 290,620 290,648 40,558" fill="#C8C2B8" stroke="#C9A96E" stroke-width=".4" opacity=".5" class="h-draw-2"/>
+  <!-- Counter right edge face -->
+  <polygon points="290,620 700,490 700,518 290,648" fill="#B8B2AA" stroke="#C9A96E" stroke-width=".4" opacity=".4" class="h-draw-2"/>
+  <!-- Marble veining top face -->
+  <path d="M80 543 Q180 522 290 530 Q380 537 460 516" stroke="white" stroke-width=".7" opacity=".22" fill="none" class="h-fade"/>
+  <path d="M120 570 Q210 552 330 558 Q420 563 510 545" stroke="white" stroke-width=".5" opacity=".14" fill="none" class="h-fade"/>
+  <path d="M380 518 Q450 508 540 514 Q610 519 680 508" stroke="#D4CEC6" stroke-width=".4" opacity=".16" fill="none" class="h-fade"/>
+  <!-- Counter drop shadow hint -->
+  <line x1="40" y1="530" x2="700" y2="490" stroke="#080604" stroke-width="3" opacity=".3" class="h-draw-2"/>
+  <!-- Explode dashed lines for counter -->
+  <line x1="40" y1="558" x2="40" y2="650" stroke="#C9A96E" stroke-width=".5" stroke-dasharray="5 4" opacity=".2" class="h-draw-3"/>
+  <line x1="290" y1="648" x2="290" y2="740" stroke="#C9A96E" stroke-width=".5" stroke-dasharray="5 4" opacity=".2" class="h-draw-3"/>
+  <line x1="700" y1="518" x2="700" y2="610" stroke="#C9A96E" stroke-width=".5" stroke-dasharray="5 4" opacity=".18" class="h-draw-3"/>
 
-  <!-- Drawer 3 -->
-  <rect x="40"  y="524" width="190" height="58" fill="url(#hWood2)" class="h-draw-4" stroke="#C9A96E" stroke-width=".6" opacity=".8"/>
-  <rect x="50"  y="532" width="170" height="42" rx="1" stroke="#C9A96E" stroke-width=".6" opacity=".5" class="h-draw-4"/>
-  <rect x="58"  y="539" width="154" height="28" rx=".5" stroke="#C9A96E" stroke-width=".3" opacity=".28" class="h-draw-5"/>
-  <rect x="110" y="550" width="80"  height="6"  rx="3"   fill="url(#hGoldH)" filter="url(#hGlow)" class="h-fade-2"/>
+  <!-- ══════════════════════════════════════
+       BASE CABINET CARCASS
+  ══════════════════════════════════════ -->
+  <!-- Top face of base cabinet -->
+  <polygon points="40,648 450,518 700,608 290,738" fill="url(#isoTop)" class="h-draw-3" stroke="#C9A96E" stroke-width=".5" opacity=".7"/>
 
-  <!-- Drawer 4 -->
-  <rect x="40"  y="584" width="190" height="58" fill="url(#hWood2)" class="h-draw-4" stroke="#C9A96E" stroke-width=".6" opacity=".8"/>
-  <rect x="50"  y="592" width="170" height="42" rx="1" stroke="#C9A96E" stroke-width=".6" opacity=".5" class="h-draw-5"/>
-  <rect x="58"  y="599" width="154" height="28" rx=".5" stroke="#C9A96E" stroke-width=".3" opacity=".28" class="h-draw-5"/>
-  <rect x="110" y="610" width="80"  height="6"  rx="3"   fill="url(#hGoldH)" filter="url(#hGlow)" class="h-fade-2"/>
+  <!-- Front face of base cabinet -->
+  <polygon points="40,648 290,738 290,958 40,868" fill="url(#isoWood1)" class="h-draw-3" stroke="#C9A96E" stroke-width=".6" opacity=".8"/>
 
-  <!-- Drawer 5 — deep bottom drawer -->
-  <rect x="40"  y="644" width="190" height="120" fill="url(#hWood2)" class="h-draw-5" stroke="#C9A96E" stroke-width=".6" opacity=".8"/>
-  <rect x="50"  y="654" width="170" height="100" rx="1" stroke="#C9A96E" stroke-width=".6" opacity=".5" class="h-draw-5"/>
-  <rect x="58"  y="662" width="154" height="84"  rx=".5" stroke="#C9A96E" stroke-width=".3" opacity=".28" class="h-draw-5"/>
-  <rect x="110" y="700" width="80"  height="7"   rx="3.5" fill="url(#hGoldH)" filter="url(#hGlow)" class="h-fade-2"/>
+  <!-- Right face of base cabinet -->
+  <polygon points="290,738 700,608 700,828 290,958" fill="url(#isoWood2)" class="h-draw-3" stroke="#C9A96E" stroke-width=".5" opacity=".65"/>
 
-  <!-- ── CENTRE base: sink unit ── -->
-  <rect x="242" y="380" width="236" height="392" fill="url(#hWood3)" class="h-draw-2" stroke="#C9A96E" stroke-width=".6" opacity=".75"/>
+  <!-- ── BASE CABINET DRAWERS (front face) ──
+       4 drawers stacked with inset panels
+  ──────────────────────────────────────── -->
+  <!-- Drawer 1 rail -->
+  <line x1="40" y1="696" x2="290" y2="786" stroke="#C9A96E" stroke-width=".6" opacity=".4" class="h-draw-4"/>
+  <!-- Drawer 1 panel -->
+  <polygon points="50,700 280,788 280,836 50,748" stroke="#C9A96E" stroke-width=".5" opacity=".45" class="h-draw-4"/>
+  <polygon points="58,707 272,792 272,828 58,743" stroke="#C9A96E" stroke-width=".3" opacity=".25" class="h-draw-4"/>
+  <!-- Drawer 1 handle -->
+  <line x1="130" y1="759" x2="198" y2="782" stroke="#C9A96E" stroke-width="3.5" stroke-linecap="round" opacity=".8" filter="url(#isoGlow)" class="h-fade"/>
+  <line x1="130" y1="759" x2="198" y2="782" stroke="#DFC08A" stroke-width="1.5" stroke-linecap="round" opacity=".6" class="h-fade"/>
 
-  <!-- Sink undermount -->
-  <rect x="282" y="328" width="156" height="26" rx="2" fill="url(#hSink)" class="h-fade"/>
-  <rect x="286" y="332" width="148" height="18" rx="1.5" fill="#0A0A0A" opacity=".95" class="h-fade"/>
-  <!-- Drain detail -->
-  <circle cx="360" cy="341" r="6" stroke="#2A2A2A" stroke-width="1" class="h-fade"/>
-  <circle cx="360" cy="341" r="3" stroke="#3A3A3A" stroke-width=".6" class="h-fade"/>
+  <!-- Drawer 2 rail -->
+  <line x1="40" y1="750" x2="290" y2="840" stroke="#C9A96E" stroke-width=".6" opacity=".4" class="h-draw-4"/>
+  <!-- Drawer 2 panel -->
+  <polygon points="50,754 280,842 280,886 50,798" stroke="#C9A96E" stroke-width=".5" opacity=".45" class="h-draw-4"/>
+  <polygon points="58,761 272,846 272,878 58,793" stroke="#C9A96E" stroke-width=".3" opacity=".25" class="h-draw-4"/>
+  <!-- Drawer 2 handle -->
+  <line x1="130" y1="810" x2="198" y2="833" stroke="#C9A96E" stroke-width="3.5" stroke-linecap="round" opacity=".8" filter="url(#isoGlow)" class="h-fade-2"/>
+  <line x1="130" y1="810" x2="198" y2="833" stroke="#DFC08A" stroke-width="1.5" stroke-linecap="round" opacity=".6" class="h-fade-2"/>
 
-  <!-- Faucet -->
-  <rect x="352" y="316" width="16" height="16" rx="2" fill="#252525" class="h-fade"/>
-  <path d="M360 316 Q360 296 386 288" stroke="#282828" stroke-width="5" fill="none" stroke-linecap="round" class="h-fade"/>
-  <path d="M360 316 Q360 296 386 288" stroke="#C9A96E" stroke-width="1.5" fill="none" stroke-linecap="round" opacity=".55" class="h-fade"/>
-  <circle cx="386" cy="287" r="5" fill="#252525" class="h-fade"/>
-  <circle cx="386" cy="287" r="2" fill="#C9A96E" opacity=".4" class="h-fade"/>
+  <!-- Drawer 3 rail -->
+  <line x1="40" y1="804" x2="290" y2="894" stroke="#C9A96E" stroke-width=".6" opacity=".4" class="h-draw-5"/>
+  <!-- Drawer 3 panel -->
+  <polygon points="50,808 280,896 280,940 50,852" stroke="#C9A96E" stroke-width=".5" opacity=".45" class="h-draw-5"/>
+  <polygon points="58,815 272,900 272,932 58,847" stroke="#C9A96E" stroke-width=".3" opacity=".25" class="h-draw-5"/>
+  <!-- Drawer 3 handle -->
+  <line x1="130" y1="864" x2="198" y2="887" stroke="#C9A96E" stroke-width="3.5" stroke-linecap="round" opacity=".75" filter="url(#isoGlow)" class="h-fade-2"/>
+  <line x1="130" y1="864" x2="198" y2="887" stroke="#DFC08A" stroke-width="1.5" stroke-linecap="round" opacity=".55" class="h-fade-2"/>
 
-  <!-- Sink door panels — two doors -->
-  <rect x="252" y="390" width="107" height="374" fill="url(#hWood2)" class="h-draw-3" stroke="#C9A96E" stroke-width=".6" opacity=".8"/>
-  <rect x="262" y="402" width="87"  height="350" rx="1" stroke="#C9A96E" stroke-width=".6" opacity=".5" class="h-draw-4"/>
-  <rect x="270" y="410" width="71"  height="334" rx="1" stroke="#C9A96E" stroke-width=".3" opacity=".28" class="h-draw-4"/>
-  <!-- Inner panel detail mid -->
-  <rect x="270" y="410" width="71"  height="160" rx="1" stroke="#C9A96E" stroke-width=".3" opacity=".2" class="h-draw-5"/>
-  <rect x="270" y="580" width="71"  height="164" rx="1" stroke="#C9A96E" stroke-width=".3" opacity=".2" class="h-draw-5"/>
+  <!-- ── BASE CABINET RIGHT FACE PANEL DOORS ──
+       Two tall doors with double inset detail
+  ──────────────────────────────────────────── -->
+  <!-- Door divider centre stile -->
+  <polygon points="486,658 490,659 490,828 486,827" fill="#0C0A06" stroke="#C9A96E" stroke-width=".4" opacity=".5" class="h-draw-4"/>
 
-  <rect x="361" y="390" width="109" height="374" fill="url(#hWood2)" class="h-draw-3" stroke="#C9A96E" stroke-width=".6" opacity=".8"/>
-  <rect x="371" y="402" width="89"  height="350" rx="1" stroke="#C9A96E" stroke-width=".6" opacity=".5" class="h-draw-4"/>
-  <rect x="379" y="410" width="73"  height="334" rx="1" stroke="#C9A96E" stroke-width=".3" opacity=".28" class="h-draw-4"/>
-  <rect x="379" y="410" width="73"  height="160" rx="1" stroke="#C9A96E" stroke-width=".3" opacity=".2" class="h-draw-5"/>
-  <rect x="379" y="580" width="73"  height="164" rx="1" stroke="#C9A96E" stroke-width=".3" opacity=".2" class="h-draw-5"/>
-
-  <!-- Door handles — vertical bar pulls -->
-  <rect x="354" y="556" width="5" height="50" rx="2.5" fill="url(#hGoldV)" filter="url(#hGlow)" class="h-fade"/>
-  <rect x="361" y="556" width="5" height="50" rx="2.5" fill="url(#hGoldV)" filter="url(#hGlow)" class="h-fade"/>
-
-  <!-- ── RIGHT base: panel door unit ── -->
-  <rect x="480" y="380" width="210" height="392" fill="url(#hWood3)" class="h-draw-2" stroke="#C9A96E" stroke-width=".6" opacity=".75"/>
-
-  <!-- Two tall doors with double inset -->
-  <rect x="490" y="390" width="94"  height="374" fill="url(#hWood2)" class="h-draw-3" stroke="#C9A96E" stroke-width=".6" opacity=".8"/>
-  <rect x="500" y="402" width="74"  height="350" rx="1" stroke="#C9A96E" stroke-width=".6" opacity=".5" class="h-draw-4"/>
-  <rect x="508" y="410" width="58"  height="334" rx="1" stroke="#C9A96E" stroke-width=".3" opacity=".28" class="h-draw-5"/>
+  <!-- LEFT base door -->
+  <polygon points="298,744 480,666 480,830 298,908" stroke="#C9A96E" stroke-width=".6" opacity=".55" class="h-draw-4"/>
+  <polygon points="308,752 470,674 470,822 308,900" stroke="#C9A96E" stroke-width=".4" opacity=".32" class="h-draw-5"/>
+  <polygon points="316,759 462,681 462,814 316,892" stroke="#C9A96E" stroke-width=".25" opacity=".18" class="h-draw-5"/>
   <!-- Arch detail top of left door -->
-  <path d="M508 430 Q537 414 566 430" stroke="#C9A96E" stroke-width=".4" opacity=".3" fill="none" class="h-draw-5"/>
-  <!-- Mid panel split -->
-  <line x1="500" y1="577" x2="574" y2="577" stroke="#C9A96E" stroke-width=".5" opacity=".4" class="h-draw-5"/>
+  <path d="M308,770 Q390,740 470,762" stroke="#C9A96E" stroke-width=".4" opacity=".28" fill="none" class="h-draw-5"/>
 
-  <rect x="586" y="390" width="96"  height="374" fill="url(#hWood2)" class="h-draw-3" stroke="#C9A96E" stroke-width=".6" opacity=".8"/>
-  <rect x="596" y="402" width="76"  height="350" rx="1" stroke="#C9A96E" stroke-width=".6" opacity=".5" class="h-draw-4"/>
-  <rect x="604" y="410" width="60"  height="334" rx="1" stroke="#C9A96E" stroke-width=".3" opacity=".28" class="h-draw-5"/>
-  <path d="M604 430 Q634 414 664 430" stroke="#C9A96E" stroke-width=".4" opacity=".3" fill="none" class="h-draw-5"/>
-  <line x1="596" y1="577" x2="672" y2="577" stroke="#C9A96E" stroke-width=".5" opacity=".4" class="h-draw-5"/>
+  <!-- RIGHT base door -->
+  <polygon points="494,655 692,614 692,778 494,819" stroke="#C9A96E" stroke-width=".6" opacity=".5" class="h-draw-4"/>
+  <polygon points="503,662 682,622 682,770 503,810" stroke="#C9A96E" stroke-width=".4" opacity=".3" class="h-draw-5"/>
+  <polygon points="511,669 674,629 674,762 511,802" stroke="#C9A96E" stroke-width=".25" opacity=".17" class="h-draw-5"/>
+  <!-- Arch detail top of right door -->
+  <path d="M503,675 Q592,650 682,665" stroke="#C9A96E" stroke-width=".4" opacity=".25" fill="none" class="h-draw-5"/>
 
-  <!-- Handles -->
-  <rect x="580" y="560" width="5" height="50" rx="2.5" fill="url(#hGoldV)" filter="url(#hGlow)" class="h-fade"/>
-  <rect x="587" y="560" width="5" height="50" rx="2.5" fill="url(#hGoldV)" filter="url(#hGlow)" class="h-fade-2"/>
+  <!-- LEFT base door handle — vertical bar pull -->
+  <polygon points="476,745 481,746 481,782 476,781" fill="url(#isoGoldV)" filter="url(#isoGlow)" class="h-fade"/>
+  <!-- RIGHT base door handle -->
+  <polygon points="490,718 495,719 495,755 490,754" fill="url(#isoGoldV)" filter="url(#isoGlow)" class="h-fade"/>
 
-  <!-- ══════════════════════════════
-       TOEKICK + FLOOR
-  ══════════════════════════════ -->
-  <rect x="42"  y="772" width="636" height="16" fill="#0A0806" class="h-draw-5" stroke="#C9A96E" stroke-width=".3" opacity=".5"/>
-  <line x1="0"  y1="788" x2="720" y2="788" stroke="#C9A96E" stroke-width=".4" opacity=".12"/>
+  <!-- ══════════════════════════════════════
+       EXPLODED DOOR PANEL (floating)
+       Left base door pulled forward and out
+       with dashed assembly lines
+  ══════════════════════════════════════ -->
+  <!-- Exploded panel — floating off to the left/front -->
+  <polygon points="-20,820 162,742 162,906 -20,984" fill="url(#isoWood3)" class="h-draw-4" stroke="#C9A96E" stroke-width=".7" opacity=".8"/>
+  <!-- Exploded panel outer inset -->
+  <polygon points="-10,828 152,752 152,896 -10,972" stroke="#C9A96E" stroke-width=".6" opacity=".5" class="h-draw-5"/>
+  <!-- Exploded panel inner inset -->
+  <polygon points="-2,835 144,758 144,888 -2,965" stroke="#C9A96E" stroke-width=".35" opacity=".3" class="h-draw-5"/>
+  <!-- Arch detail on exploded panel -->
+  <path d="M-10,845 Q70,818 152,836" stroke="#C9A96E" stroke-width=".4" opacity=".3" fill="none" class="h-draw-5"/>
+  <!-- Mid-panel split line -->
+  <line x1="-20" y1="895" x2="162" y2="822" stroke="#C9A96E" stroke-width=".4" opacity=".3" class="h-draw-5"/>
+  <!-- Exploded panel bar pull handle -->
+  <polygon points="154,818 159,819 159,855 154,854" fill="url(#isoGoldV)" filter="url(#isoGlow)" class="h-fade-2"/>
 
-  <!-- ══════════════════════════════
-       COUNTERTOP OBJECTS
-  ══════════════════════════════ -->
-  <!-- Cutting board left -->
-  <rect x="52"  y="298" width="88" height="10" rx="1.5" fill="#2C2016" opacity=".75" class="h-fade"/>
-  <rect x="54"  y="299" width="84" height="8"  rx="1" stroke="#C9A96E" stroke-width=".4" opacity=".3" class="h-fade"/>
-  <!-- Knife block -->
-  <rect x="158" y="284" width="20" height="26" rx="1.5" fill="#201810" opacity=".85" class="h-fade"/>
-  <line x1="162" y1="284" x2="162" y2="298" stroke="#C9A96E" stroke-width=".5" opacity=".25" class="h-fade"/>
-  <line x1="167" y1="284" x2="167" y2="300" stroke="#C9A96E" stroke-width=".5" opacity=".25" class="h-fade"/>
-  <line x1="172" y1="284" x2="172" y2="302" stroke="#C9A96E" stroke-width=".5" opacity=".25" class="h-fade"/>
-  <!-- Potted plant right -->
-  <ellipse cx="618" cy="312" rx="20" ry="5" fill="#1A1410" opacity=".7" class="h-fade-2"/>
-  <rect x="608" y="296" width="20" height="18" rx="2" fill="#201810" opacity=".65" class="h-fade-2"/>
-  <path d="M614 296 Q610 280 614 268 Q618 262 622 268 Q626 280 622 296" fill="#1E2810" opacity=".5" class="h-fade-2"/>
-  <path d="M614 288 Q604 274 608 262" stroke="#263018" stroke-width="1.4" opacity=".45" fill="none" class="h-fade-2"/>
-  <path d="M622 284 Q634 272 630 260" stroke="#263018" stroke-width="1.4" opacity=".45" fill="none" class="h-fade-2"/>
+  <!-- Assembly lines from exploded panel back to carcass -->
+  <line x1="162" y1="742" x2="298" y2="744" stroke="#C9A96E" stroke-width=".5" stroke-dasharray="6 4" opacity=".3" class="h-draw-4"/>
+  <line x1="162" y1="906" x2="298" y2="908" stroke="#C9A96E" stroke-width=".5" stroke-dasharray="6 4" opacity=".25" class="h-draw-4"/>
+
+  <!-- ══════════════════════════════════════
+       FLOATING BRASS HINGE (exploded detail)
+  ══════════════════════════════════════ -->
+  <!-- Hinge body -->
+  <rect x="155" y="768" width="18" height="24" rx="1" fill="#C9A96E" opacity=".8" class="h-fade"/>
+  <rect x="155" y="768" width="18" height="24" rx="1" stroke="#DFC08A" stroke-width=".6" opacity=".5" class="h-fade"/>
+  <!-- Hinge knuckle -->
+  <ellipse cx="164" cy="780" rx="4" ry="6" fill="#B8922C" stroke="#DFC08A" stroke-width=".5" opacity=".9" class="h-fade"/>
+  <!-- Hinge screw holes -->
+  <circle cx="160" cy="773" r="1.5" fill="#A07828" class="h-fade"/>
+  <circle cx="168" cy="773" r="1.5" fill="#A07828" class="h-fade"/>
+  <circle cx="160" cy="787" r="1.5" fill="#A07828" class="h-fade"/>
+  <circle cx="168" cy="787" r="1.5" fill="#A07828" class="h-fade"/>
+  <!-- Hinge leader line -->
+  <line x1="173" y1="780" x2="295" y2="790" stroke="#C9A96E" stroke-width=".4" stroke-dasharray="4 3" opacity=".3" class="h-fade"/>
+
+  <!-- ══════════════════════════════════════
+       FLOATING BAR PULL DETAIL (exploded)
+       Oversized hardware detail top right
+  ══════════════════════════════════════ -->
+  <!-- Pull body -->
+  <rect x="610" y="120" width="72" height="12" rx="6" fill="url(#isoGoldH)" filter="url(#isoGlow)" class="h-fade"/>
+  <!-- Pull posts -->
+  <rect x="616" y="110" width="8" height="24" rx="2" fill="#C9A96E" opacity=".75" class="h-fade"/>
+  <rect x="666" y="110" width="8" height="24" rx="2" fill="#C9A96E" opacity=".75" class="h-fade"/>
+  <!-- Pull leader line down to drawer -->
+  <line x1="646" y1="134" x2="520" y2="330" stroke="#C9A96E" stroke-width=".4" stroke-dasharray="5 4" opacity=".25" class="h-fade-2"/>
+
+  <!-- ══════════════════════════════════════
+       TOEKICK BASE
+  ══════════════════════════════════════ -->
+  <polygon points="50,868 280,952 280,960 50,876" fill="#0A0806" stroke="#C9A96E" stroke-width=".3" opacity=".5" class="h-draw-5"/>
+  <polygon points="280,952 696,828 700,836 280,960" fill="#0A0806" stroke="#C9A96E" stroke-width=".3" opacity=".4" class="h-draw-5"/>
 </svg>
   </div>
   <div class="hero-content">
