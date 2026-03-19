@@ -40,41 +40,9 @@
   .hero-geo::before { content: ''; position: absolute; top: 12%; right: 8%; width: 420px; height: 520px; border: 1px solid rgba(201,169,110,.06); transform: rotate(6deg); }
   .hero-geo::after { content: ''; position: absolute; top: 16%; right: 12%; width: 360px; height: 460px; border: 1px solid rgba(201,169,110,.03); transform: rotate(-2deg); }
   .hero-letter { display: none; }
-  /* Hero right illustration */
-  .hero-visual { position: absolute; right: 0; top: 18%; bottom: 0; width: 48%; pointer-events: none; z-index: 1; }
-  .hero-visual-fade { position: absolute; inset: 0; background: linear-gradient(to right, #0A0908 0%, #0A0908 12%, transparent 42%, transparent 78%, #0A0908 100%); z-index: 3; }
-  .hero-visual-fade-bottom { position: absolute; inset: 0; background: linear-gradient(to top, #0A0908 0%, transparent 30%), linear-gradient(to bottom, #0A0908 0%, transparent 25%); z-index: 3; }
-  .hero-visual svg { position: absolute; inset: 0; width: 100%; height: 100%; }
-  /* draw-in animations */
-  .h-draw { stroke-dasharray: 2000; stroke-dashoffset: 2000; animation: hDraw 2.8s cubic-bezier(0.4,0,0.2,1) forwards; }
-  .h-draw-2 { stroke-dasharray: 2000; stroke-dashoffset: 2000; animation: hDraw 2.8s cubic-bezier(0.4,0,0.2,1) .2s forwards; }
-  .h-draw-3 { stroke-dasharray: 2000; stroke-dashoffset: 2000; animation: hDraw 2.6s cubic-bezier(0.4,0,0.2,1) .4s forwards; }
-  .h-draw-4 { stroke-dasharray: 2000; stroke-dashoffset: 2000; animation: hDraw 2.4s cubic-bezier(0.4,0,0.2,1) .6s forwards; }
-  .h-draw-5 { stroke-dasharray: 2000; stroke-dashoffset: 2000; animation: hDraw 2.2s cubic-bezier(0.4,0,0.2,1) .8s forwards; }
-  .h-fade { opacity: 0; animation: hFade .8s ease 1.8s forwards; }
-  .h-fade-2 { opacity: 0; animation: hFade .8s ease 2s forwards; }
-  .h-fade-3 { opacity: 0; animation: hFade .8s ease 2.2s forwards; }
-  @keyframes hDraw { to { stroke-dashoffset: 0; } }
-  @keyframes hFade { to { opacity: 1; } }
-  @media (max-width: 1024px) { .hero-visual { width: 60%; } }
-  @media (max-width: 768px) {
-    .hero-visual {
-      display: block;
-      position: relative;
-      width: 100%;
-      height: 320px;
-      right: auto;
-      top: auto;
-      bottom: auto;
-      flex-shrink: 0;
-    }
-    .hero-visual svg { object-fit: cover; }
-    .hero-visual-fade {
-      background: linear-gradient(to right, #0A0908 0%, transparent 15%, transparent 85%, #0A0908 100%);
-    }
-    .hero-visual-fade-bottom {
-      background: linear-gradient(to top, #0A0908 0%, transparent 50%);
-    }
+    
+    
+    
   }
   .hero-content { position: relative; z-index: 2; padding: 0 56px 100px; max-width: 800px; }
   .hero-eyebrow { display: flex; align-items: center; gap: 16px; margin-bottom: 32px; opacity: 0; animation: fadeUp 1s var(--transition) .3s forwards; }
@@ -331,282 +299,7 @@
 
 <section class="hero" id="hero">
   <div class="hero-bg"></div><div class="hero-geo"></div>
-
-  <!-- Right-side luxury cabinet illustration -->
-  <div class="hero-visual">
-    <div class="hero-visual-fade"></div>
-    <div class="hero-visual-fade-bottom"></div>
-    <svg viewBox="0 0 720 960" xmlns="http://www.w3.org/2000/svg" fill="none" preserveAspectRatio="xMidYMid slice">
-  <defs>
-    <linearGradient id="bWoodFront" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%"   stop-color="#2C2218"/>
-      <stop offset="100%" stop-color="#1C1610"/>
-    </linearGradient>
-    <linearGradient id="bWoodSide" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0%"   stop-color="#201810"/>
-      <stop offset="100%" stop-color="#100E08"/>
-    </linearGradient>
-    <linearGradient id="bWoodTop" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%"   stop-color="#3C2E1C"/>
-      <stop offset="100%" stop-color="#241C12"/>
-    </linearGradient>
-    <linearGradient id="bDrawer" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%"   stop-color="#342818"/>
-      <stop offset="100%" stop-color="#201810"/>
-    </linearGradient>
-    <linearGradient id="bMarbleTop" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%"   stop-color="#E8E4DC"/>
-      <stop offset="50%"  stop-color="#F0ECE4"/>
-      <stop offset="100%" stop-color="#D0CCC4"/>
-    </linearGradient>
-    <linearGradient id="bGoldH" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0%"   stop-color="#8A6828"/>
-      <stop offset="35%"  stop-color="#E8CC8A"/>
-      <stop offset="65%"  stop-color="#C9A96E"/>
-      <stop offset="100%" stop-color="#8A6828"/>
-    </linearGradient>
-    <linearGradient id="bGoldV" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%"   stop-color="#8A6828"/>
-      <stop offset="35%"  stop-color="#E8CC8A"/>
-      <stop offset="65%"  stop-color="#C9A96E"/>
-      <stop offset="100%" stop-color="#8A6828"/>
-    </linearGradient>
-    <filter id="bGlow">
-      <feGaussianBlur stdDeviation="2" result="b"/>
-      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
-    </filter>
-  </defs>
-
-  <!-- ═══════════════════════════════════════════
-       3/4 VIEW CABINET
-       Front face: x=60..500, y=60..880
-       Side face: x=500..640, skewed back
-       Scale: ~2.3x from 330x400 preview
-  ═══════════════════════════════════════════ -->
-
-  <!-- ── UPPER CABINET ──────────────────────── -->
-
-  <!-- Side face upper -->
-  <polygon points="500,116  640,64  640,462  500,514"
-           fill="url(#bWoodSide)" stroke="#C9A96E" stroke-width=".6" opacity=".85" class="h-draw"/>
-
-  <!-- Front face upper -->
-  <polygon points="60,116  500,116  500,514  60,514"
-           fill="url(#bWoodFront)" stroke="#C9A96E" stroke-width=".7" opacity=".9" class="h-draw"/>
-
-  <!-- Top face upper (crown) -->
-  <polygon points="52,108  508,108  648,56  192,56"
-           fill="url(#bWoodTop)" stroke="#C9A96E" stroke-width=".6" opacity=".8" class="h-draw"/>
-
-  <!-- Crown moulding strip -->
-  <polygon points="52,108  508,108  508,122  52,122"
-           fill="#3A2C1A" stroke="#C9A96E" stroke-width=".5" opacity=".6" class="h-draw"/>
-  <polygon points="508,108  648,56  648,70  508,122"
-           fill="#2A2018" stroke="#C9A96E" stroke-width=".4" opacity=".5" class="h-draw"/>
-
-  <!-- Centre stile (door divider) upper -->
-  <rect x="276" y="124" width="8" height="382" fill="#141008"
-        stroke="#C9A96E" stroke-width=".5" opacity=".6" class="h-draw-2"/>
-
-  <!-- LEFT upper door — outer frame -->
-  <polygon points="72,124  272,124  272,506  72,506"
-           stroke="#C9A96E" stroke-width="1" fill="none" opacity=".65" class="h-draw-2"/>
-  <!-- LEFT upper door — outer inset -->
-  <polygon points="86,138  258,138  258,492  86,492"
-           stroke="#C9A96E" stroke-width=".55" fill="none" opacity=".42" class="h-draw-3"/>
-  <!-- LEFT upper door — inner inset (double reveal) -->
-  <polygon points="98,150  246,150  246,480  98,480"
-           stroke="#C9A96E" stroke-width=".3" fill="none" opacity=".22" class="h-draw-3"/>
-  <!-- LEFT upper arch detail -->
-  <path d="M86,460 Q172,430 258,460"
-        stroke="#C9A96E" stroke-width=".45" fill="none" opacity=".32" class="h-draw-4"/>
-
-  <!-- RIGHT upper door — outer frame -->
-  <polygon points="286,124  488,124  488,506  286,506"
-           stroke="#C9A96E" stroke-width="1" fill="none" opacity=".65" class="h-draw-2"/>
-  <!-- RIGHT upper door — outer inset -->
-  <polygon points="300,138  474,138  474,492  300,492"
-           stroke="#C9A96E" stroke-width=".55" fill="none" opacity=".42" class="h-draw-3"/>
-  <!-- RIGHT upper door — inner inset -->
-  <polygon points="312,150  462,150  462,480  312,480"
-           stroke="#C9A96E" stroke-width=".3" fill="none" opacity=".22" class="h-draw-3"/>
-  <!-- RIGHT upper arch detail -->
-  <path d="M300,460 Q387,430 474,460"
-        stroke="#C9A96E" stroke-width=".45" fill="none" opacity=".32" class="h-draw-4"/>
-
-  <!-- LEFT upper door handle — vertical bar pull -->
-  <rect x="265" y="290" width="6" height="60" rx="3"
-        fill="url(#bGoldV)" filter="url(#bGlow)" class="h-fade"/>
-  <!-- RIGHT upper door handle -->
-  <rect x="283" y="292" width="6" height="60" rx="3"
-        fill="url(#bGoldV)" filter="url(#bGlow)" class="h-fade"/>
-
-  <!-- Side face upper — reeded panel -->
-  <polygon points="516,122  636,72  636,454  516,504"
-           fill="url(#bWoodSide)" stroke="none" opacity=".7" class="h-draw-2"/>
-  <!-- Reed lines on side -->
-  <line x1="534" y1="120" x2="534" y2="506" stroke="#C9A96E" stroke-width=".5" opacity=".2" class="h-draw-3"/>
-  <line x1="552" y1="116" x2="552" y2="502" stroke="#C9A96E" stroke-width=".5" opacity=".2" class="h-draw-3"/>
-  <line x1="570" y1="112" x2="570" y2="498" stroke="#C9A96E" stroke-width=".5" opacity=".2" class="h-draw-3"/>
-  <line x1="588" y1="108" x2="588" y2="494" stroke="#C9A96E" stroke-width=".5" opacity=".2" class="h-draw-3"/>
-  <line x1="606" y1="104" x2="606" y2="490" stroke="#C9A96E" stroke-width=".5" opacity=".2" class="h-draw-3"/>
-  <line x1="624" y1="100" x2="624" y2="486" stroke="#C9A96E" stroke-width=".5" opacity=".2" class="h-draw-3"/>
-  <!-- Reed panel inset border -->
-  <polygon points="512,124  636,74  636,456  512,506"
-           stroke="#C9A96E" stroke-width=".6" fill="none" opacity=".38" class="h-draw-3"/>
-  <polygon points="520,132  630,84  630,448  520,498"
-           stroke="#C9A96E" stroke-width=".3" fill="none" opacity=".2" class="h-draw-4"/>
-
-  <!-- ── MARBLE COUNTERTOP ───────────────────── -->
-
-  <!-- Counter top face -->
-  <polygon points="52,522  512,522  652,470  192,470"
-           fill="url(#bMarbleTop)" stroke="#C9A96E" stroke-width=".5" opacity=".75" class="h-draw-2"/>
-  <!-- Counter front face -->
-  <polygon points="52,522  512,522  512,546  52,546"
-           fill="#D0CCC4" stroke="#C9A96E" stroke-width=".4" opacity=".6" class="h-draw-2"/>
-  <!-- Counter side face -->
-  <polygon points="512,522  652,470  652,494  512,546"
-           fill="#C0BDB5" stroke="#C9A96E" stroke-width=".4" opacity=".55" class="h-draw-2"/>
-  <!-- Marble veining -->
-  <path d="M80,528 Q200,518 340,524 Q440,528 540,516"
-        stroke="white" stroke-width=".8" fill="none" opacity=".2" class="h-fade"/>
-  <path d="M120,536 Q260,526 400,532 Q490,536 590,524"
-        stroke="white" stroke-width=".5" fill="none" opacity=".13" class="h-fade"/>
-  <path d="M300,520 Q400,512 500,518"
-        stroke="#D8D4CC" stroke-width=".4" fill="none" opacity=".18" class="h-fade"/>
-  <!-- Counter shadow line -->
-  <line x1="52" y1="546" x2="512" y2="546"
-        stroke="#080604" stroke-width="2.5" opacity=".4" class="h-draw-2"/>
-
-  <!-- ── BASE CABINET ───────────────────────── -->
-
-  <!-- Side face base -->
-  <polygon points="512,546  652,494  652,900  512,900"
-           fill="url(#bWoodSide)" stroke="#C9A96E" stroke-width=".6" opacity=".8" class="h-draw-3"/>
-
-  <!-- Front face base -->
-  <polygon points="60,546  512,546  512,900  60,900"
-           fill="url(#bWoodFront)" stroke="#C9A96E" stroke-width=".7" opacity=".88" class="h-draw-3"/>
-
-  <!-- Toekick -->
-  <polygon points="72,876  500,876  500,900  72,900"
-           fill="#0E0C08" stroke="#C9A96E" stroke-width=".4" opacity=".5" class="h-draw-5"/>
-  <polygon points="500,876  640,824  640,848  500,900"
-           fill="#0A0806" stroke="#C9A96E" stroke-width=".3" opacity=".4" class="h-draw-5"/>
-
-  <!-- ── BASE DRAWERS (3 drawers) ────────────── -->
-
-  <!-- Drawer rail lines -->
-  <line x1="60" y1="556" x2="512" y2="556"
-        stroke="#C9A96E" stroke-width=".5" opacity=".35" class="h-draw-3"/>
-
-  <!-- DRAWER 1 -->
-  <polygon points="68,558  504,558  504,672  68,672"
-           fill="url(#bDrawer)" stroke="#C9A96E" stroke-width=".65" opacity=".85" class="h-draw-3"/>
-  <!-- D1 outer inset -->
-  <polygon points="82,572  490,572  490,658  82,658"
-           stroke="#C9A96E" stroke-width=".6" fill="none" opacity=".5" class="h-draw-4"/>
-  <!-- D1 inner inset -->
-  <polygon points="94,582  478,582  478,648  94,648"
-           stroke="#C9A96E" stroke-width=".32" fill="none" opacity=".28" class="h-draw-4"/>
-  <!-- D1 handle -->
-  <rect x="216" y="608" width="140" height="9" rx="4.5"
-        fill="url(#bGoldH)" filter="url(#bGlow)" class="h-fade"/>
-
-  <!-- DRAWER 2 -->
-  <polygon points="68,674  504,674  504,776  68,776"
-           fill="url(#bDrawer)" stroke="#C9A96E" stroke-width=".65" opacity=".85" class="h-draw-4"/>
-  <!-- D2 outer inset -->
-  <polygon points="82,686  490,686  490,764  82,764"
-           stroke="#C9A96E" stroke-width=".6" fill="none" opacity=".5" class="h-draw-4"/>
-  <!-- D2 inner inset -->
-  <polygon points="94,696  478,696  478,754  94,754"
-           stroke="#C9A96E" stroke-width=".32" fill="none" opacity=".28" class="h-draw-5"/>
-  <!-- D2 handle -->
-  <rect x="216" y="720" width="140" height="9" rx="4.5"
-        fill="url(#bGoldH)" filter="url(#bGlow)" class="h-fade-2"/>
-
-  <!-- DRAWER 3 -->
-  <polygon points="68,778  504,778  504,874  68,874"
-           fill="url(#bDrawer)" stroke="#C9A96E" stroke-width=".65" opacity=".85" class="h-draw-5"/>
-  <!-- D3 outer inset -->
-  <polygon points="82,790  490,790  490,862  82,862"
-           stroke="#C9A96E" stroke-width=".6" fill="none" opacity=".5" class="h-draw-5"/>
-  <!-- D3 inner inset -->
-  <polygon points="94,800  478,800  478,852  94,852"
-           stroke="#C9A96E" stroke-width=".32" fill="none" opacity=".28" class="h-draw-5"/>
-  <!-- D3 handle -->
-  <rect x="216" y="822" width="140" height="9" rx="4.5"
-        fill="url(#bGoldH)" filter="url(#bGlow)" class="h-fade-2"/>
-
-  <!-- ── BASE SIDE FACE — 2 PANEL DOORS ──────── -->
-
-  <!-- Door divider stile on side -->
-  <polygon points="580,494  584,492  584,830  580,832"
-           fill="#0C0A06" stroke="#C9A96E" stroke-width=".4" opacity=".5" class="h-draw-4"/>
-
-  <!-- LEFT side door -->
-  <polygon points="520,544  576,522  576,830  520,852"
-           stroke="#C9A96E" stroke-width=".7" fill="none" opacity=".6" class="h-draw-4"/>
-  <polygon points="528,552  568,532  568,822  528,842"
-           stroke="#C9A96E" stroke-width=".4" fill="none" opacity=".36" class="h-draw-5"/>
-  <polygon points="534,558  562,540  562,816  534,836"
-           stroke="#C9A96E" stroke-width=".25" fill="none" opacity=".2" class="h-draw-5"/>
-
-  <!-- RIGHT side door -->
-  <polygon points="588,520  642,498  642,806  588,828"
-           stroke="#C9A96E" stroke-width=".7" fill="none" opacity=".55" class="h-draw-4"/>
-  <polygon points="596,528  634,508  634,798  596,818"
-           stroke="#C9A96E" stroke-width=".4" fill="none" opacity=".32" class="h-draw-5"/>
-  <polygon points="602,534  628,516  628,792  602,812"
-           stroke="#C9A96E" stroke-width=".25" fill="none" opacity=".18" class="h-draw-5"/>
-
-  <!-- Side door handles -->
-  <polygon points="573,672  578,670  578,710  573,712"
-           fill="url(#bGoldV)" filter="url(#bGlow)" class="h-fade"/>
-  <polygon points="586,668  591,666  591,706  586,708"
-           fill="url(#bGoldV)" filter="url(#bGlow)" class="h-fade"/>
-
-  <!-- ── FLOATING HARDWARE CALLOUT ──────────── -->
-  <!-- Bar pull detail — floating top right area -->
-  <rect x="580" y="80" width="100" height="14" rx="7"
-        fill="url(#bGoldH)" filter="url(#bGlow)" class="h-fade-3" opacity=".9"/>
-  <!-- Pull posts -->
-  <rect x="588" y="68" width="10" height="28" rx="3"
-        fill="#C9A96E" opacity=".8" class="h-fade-3"/>
-  <rect x="662" y="68" width="10" height="28" rx="3"
-        fill="#C9A96E" opacity=".8" class="h-fade-3"/>
-  <!-- Post top caps -->
-  <rect x="586" y="64" width="14" height="6" rx="2"
-        fill="#DFC08A" opacity=".7" class="h-fade-3"/>
-  <rect x="660" y="64" width="14" height="6" rx="2"
-        fill="#DFC08A" opacity=".7" class="h-fade-3"/>
-  <!-- Leader line from callout to drawer handle -->
-  <line x1="630" y1="97" x2="356" y2="617"
-        stroke="#C9A96E" stroke-width=".5" stroke-dasharray="5 4"
-        opacity=".25" class="h-fade-3"/>
-
-  <!-- Hinge callout detail -->
-  <rect x="600" y="390" width="26" height="38" rx="1.5"
-        fill="#C9A96E" opacity=".82" class="h-fade-3"/>
-  <rect x="600" y="390" width="26" height="38" rx="1.5"
-        stroke="#DFC08A" stroke-width=".7" fill="none" opacity=".5" class="h-fade-3"/>
-  <!-- Knuckle -->
-  <ellipse cx="613" cy="409" rx="5" ry="8"
-           fill="#A07828" stroke="#DFC08A" stroke-width=".6" opacity=".9" class="h-fade-3"/>
-  <!-- Screw holes -->
-  <circle cx="606" cy="397" r="2.2" fill="#8A6820" class="h-fade-3"/>
-  <circle cx="620" cy="397" r="2.2" fill="#8A6820" class="h-fade-3"/>
-  <circle cx="606" cy="421" r="2.2" fill="#8A6820" class="h-fade-3"/>
-  <circle cx="620" cy="421" r="2.2" fill="#8A6820" class="h-fade-3"/>
-  <!-- Hinge leader line -->
-  <line x1="600" y1="409" x2="512" y2="440"
-        stroke="#C9A96E" stroke-width=".5" stroke-dasharray="4 3"
-        opacity=".28" class="h-fade-3"/>
-
-</svg>
-  </div>
+  <canvas id="heroCanvas" style="position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:1;opacity:1;"></canvas>
   <div class="hero-content">
     <div class="hero-eyebrow"><div class="eyebrow-line"></div><span>Luxury Custom Millwork</span></div>
     <h1 class="hero-title">Where craft<br>meets <em>vision</em></h1>
@@ -995,6 +688,127 @@
   qEl.style.transition=aEl.style.transition='opacity .3s';
   function setTesti(i){cur=i;qEl.style.opacity=aEl.style.opacity='0';setTimeout(()=>{qEl.textContent=testis[i].quote;aEl.textContent=testis[i].author;qEl.style.opacity=aEl.style.opacity='1';},300);dots.forEach((d,j)=>d.classList.toggle('active',i===j));}
   setInterval(()=>setTesti((cur+1)%3),6000);
+
+  // ── Hero canvas animation: gilded geometry ──────────────────
+  (function(){
+    const canvas = document.getElementById('heroCanvas');
+    if(!canvas) return;
+    const ctx = canvas.getContext('2d');
+    let t = 0, W, H, cx, cy;
+
+    function resize(){
+      W = canvas.offsetWidth; H = canvas.offsetHeight;
+      canvas.width = W * devicePixelRatio;
+      canvas.height = H * devicePixelRatio;
+      ctx.scale(devicePixelRatio, devicePixelRatio);
+      cx = W * 0.72; cy = H * 0.48;
+    }
+    resize();
+    window.addEventListener('resize', resize);
+
+    function draw(){
+      ctx.clearRect(0,0,W,H);
+
+      // ── Radiating spokes ──
+      const spokeCount = 36;
+      for(let i = 0; i < spokeCount; i++){
+        const angle = (i / spokeCount) * Math.PI * 2 + t * 0.0012;
+        const len = Math.max(W,H) * 0.9;
+        const alpha = 0.04 + 0.03 * Math.sin(t * 0.008 + i * 0.4);
+        ctx.beginPath();
+        ctx.moveTo(cx, cy);
+        ctx.lineTo(cx + Math.cos(angle) * len, cy + Math.sin(angle) * len);
+        ctx.strokeStyle = `rgba(201,169,110,${alpha})`;
+        ctx.lineWidth = 0.8;
+        ctx.stroke();
+      }
+
+      // ── Concentric diamonds ──
+      const diamondCount = 12;
+      for(let d = 1; d <= diamondCount; d++){
+        const base = d * 52;
+        const pulse = Math.sin(t * 0.006 + d * 0.5) * 6;
+        const sz = base + pulse;
+        const rot = t * 0.003 * (d % 2 === 0 ? 1 : -1) + Math.PI / 4;
+        const alpha = 0.12 + 0.1 * ((diamondCount - d) / diamondCount) + 0.04 * Math.sin(t * 0.01 + d);
+
+        ctx.save();
+        ctx.translate(cx, cy);
+        ctx.rotate(rot);
+        ctx.beginPath();
+        ctx.moveTo(0, -sz);
+        ctx.lineTo(sz, 0);
+        ctx.lineTo(0, sz);
+        ctx.lineTo(-sz, 0);
+        ctx.closePath();
+        ctx.strokeStyle = `rgba(201,169,110,${alpha})`;
+        ctx.lineWidth = d <= 3 ? 1.2 : 0.8;
+        ctx.stroke();
+        ctx.restore();
+
+        // Inner glow on smallest diamonds
+        if(d <= 3){
+          ctx.save();
+          ctx.translate(cx, cy);
+          ctx.rotate(rot);
+          ctx.beginPath();
+          ctx.moveTo(0, -sz); ctx.lineTo(sz, 0);
+          ctx.lineTo(0, sz); ctx.lineTo(-sz, 0);
+          ctx.closePath();
+          ctx.strokeStyle = `rgba(223,192,138,${alpha * 0.5})`;
+          ctx.lineWidth = 3;
+          ctx.stroke();
+          ctx.restore();
+        }
+      }
+
+      // ── Cross hair lines through centre ──
+      [-45, 0, 45, 90].forEach((deg, i) => {
+        const rad = deg * Math.PI / 180;
+        const len = Math.max(W,H);
+        const alpha = 0.07 + 0.04 * Math.sin(t * 0.007 + i);
+        ctx.beginPath();
+        ctx.moveTo(cx - Math.cos(rad)*len, cy - Math.sin(rad)*len);
+        ctx.lineTo(cx + Math.cos(rad)*len, cy + Math.sin(rad)*len);
+        ctx.strokeStyle = `rgba(201,169,110,${alpha})`;
+        ctx.lineWidth = 0.6;
+        ctx.stroke();
+      });
+
+      // ── Pulsing centre dot ──
+      const dotR = 2.5 + Math.sin(t * 0.04) * 0.8;
+      ctx.beginPath();
+      ctx.arc(cx, cy, dotR, 0, Math.PI * 2);
+      ctx.fillStyle = 'rgba(223,192,138,0.9)';
+      ctx.fill();
+
+      // Outer glow ring on centre
+      const glowR = 12 + Math.sin(t * 0.03) * 3;
+      ctx.beginPath();
+      ctx.arc(cx, cy, glowR, 0, Math.PI * 2);
+      ctx.strokeStyle = 'rgba(201,169,110,0.25)';
+      ctx.lineWidth = 1;
+      ctx.stroke();
+
+      // ── Left-side horizontal accent lines ──
+      for(let i = 0; i < 6; i++){
+        const y = H * 0.2 + i * H * 0.12 + Math.sin(t * 0.006 + i) * 4;
+        const lineW = W * 0.28 + i * 14;
+        const alpha = 0.08 + 0.05 * Math.sin(t * 0.009 + i * 0.7);
+        ctx.beginPath();
+        ctx.moveTo(0, y);
+        ctx.lineTo(lineW, y);
+        ctx.strokeStyle = `rgba(201,169,110,${alpha})`;
+        ctx.lineWidth = 0.6;
+        ctx.stroke();
+      }
+
+      t++;
+      requestAnimationFrame(draw);
+    }
+    draw();
+  })();
+
   // Form submission - show overlay, no page redirect
   function handleFormSubmit(e){
     e.preventDefault();
