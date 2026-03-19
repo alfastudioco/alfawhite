@@ -701,7 +701,7 @@
   // Assemble emails so Cloudflare can't obfuscate them
   (function(){
     var c = ['human','@','alfastudio','.us'].join('');
-    var f = ['hello,'@','alfastudio','.com'].join('');
+    var f = ['hello','@','alfastudio','.com'].join('');
     var ce = document.getElementById('contactEmail');
     var fe = document.getElementById('footerEmail');
     if(ce){ ce.href = 'mailto:' + c; ce.textContent = c; }
