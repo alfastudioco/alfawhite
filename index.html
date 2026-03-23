@@ -330,7 +330,7 @@
     <li><a href="#gallery">Portfolio</a></li><li><a href="#trade">Trade</a></li><li><a href="#contact">Contact</a></li>
   </ul>
   <a href="#contact" class="nav-cta">Begin a Project</a>
-  <button class="nav-toggle" id="navToggleBtn" aria-label="Menu" style="touch-action:manipulation;-webkit-tap-highlight-color:transparent;"><span></span><span></span><span></span></button>
+  <button onclick="var m=document.getElementById('mobileMenu');m.style.display='flex';document.body.style.overflow='hidden';" style="display:none;flex-direction:column;gap:5px;background:none;border:none;padding:8px;cursor:pointer;touch-action:manipulation;-webkit-tap-highlight-color:transparent;" class="nav-toggle" id="navToggleBtn" aria-label="Menu"><span></span><span></span><span></span></button>
 </nav>
 
 <section class="hero" id="hero">
@@ -874,25 +874,7 @@
   document.querySelectorAll('form[action*="formspree"]').forEach(f=>f.addEventListener('submit',handleFormSubmit));
 
 
-  // Mobile menu
-  var mMenu = document.getElementById('mobileMenu');
-  function openMobileMenu(){ mMenu.style.display='flex'; document.body.style.overflow='hidden'; }
-  function closeMobileMenu(){ mMenu.style.display='none'; document.body.style.overflow=''; }
 
-  document.getElementById('navToggleBtn').onclick = openMobileMenu;
-
-  // Close button — large tap area
-  document.getElementById('mobileMenuClose').onclick = function(e){ e.stopPropagation(); closeMobileMenu(); };
-
-  // Tap anywhere on the overlay background to close
-  mMenu.onclick = function(e){
-    if(e.target === mMenu) closeMobileMenu();
-  };
-
-  // Nav links close the menu
-  document.querySelectorAll('.mobile-nav-link').forEach(function(l){
-    l.onclick = function(e){ e.stopPropagation(); closeMobileMenu(); };
-  });
 
   // Assemble emails so Cloudflare can't obfuscate them
   (function(){
@@ -905,18 +887,16 @@
   })();
 </script>
 
-<div class="mobile-menu" id="mobileMenu">
-  <button class="mobile-menu-close" id="mobileMenuClose" aria-label="Close menu">
-    <span></span><span></span>
-  </button>
-  <ul>
-    <li><a href="#services" class="mobile-nav-link">Services</a></li>
-    <li><a href="#process" class="mobile-nav-link">Process</a></li>
-    <li><a href="#gallery" class="mobile-nav-link">Portfolio</a></li>
-    <li><a href="#trade" class="mobile-nav-link">Trade</a></li>
-    <li><a href="#contact" class="mobile-nav-link">Contact</a></li>
+<div id="mobileMenu" style="display:none;position:fixed;inset:0;background:rgba(10,8,6,0.97);z-index:9999;flex-direction:column;align-items:center;justify-content:center;" onclick="if(event.target===this){this.style.display='none';document.body.style.overflow='';}">
+  <button onclick="document.getElementById('mobileMenu').style.display='none';document.body.style.overflow='';" style="position:absolute;top:24px;right:24px;background:none;border:1px solid rgba(201,169,110,0.4);color:#C9A96E;font-size:22px;width:48px;height:48px;cursor:pointer;display:flex;align-items:center;justify-content:center;font-family:serif;">&#215;</button>
+  <ul style="list-style:none;text-align:center;display:flex;flex-direction:column;gap:36px;padding:0;margin:0;">
+    <li><a href="#services" onclick="document.getElementById('mobileMenu').style.display='none';document.body.style.overflow='';" style="font-family:'Cormorant Garamond',serif;font-size:34px;font-weight:300;letter-spacing:.08em;color:#F2EDE4;text-decoration:none;">Services</a></li>
+    <li><a href="#process" onclick="document.getElementById('mobileMenu').style.display='none';document.body.style.overflow='';" style="font-family:'Cormorant Garamond',serif;font-size:34px;font-weight:300;letter-spacing:.08em;color:#F2EDE4;text-decoration:none;">Process</a></li>
+    <li><a href="#gallery" onclick="document.getElementById('mobileMenu').style.display='none';document.body.style.overflow='';" style="font-family:'Cormorant Garamond',serif;font-size:34px;font-weight:300;letter-spacing:.08em;color:#F2EDE4;text-decoration:none;">Portfolio</a></li>
+    <li><a href="#trade" onclick="document.getElementById('mobileMenu').style.display='none';document.body.style.overflow='';" style="font-family:'Cormorant Garamond',serif;font-size:34px;font-weight:300;letter-spacing:.08em;color:#F2EDE4;text-decoration:none;">Trade</a></li>
+    <li><a href="#contact" onclick="document.getElementById('mobileMenu').style.display='none';document.body.style.overflow='';" style="font-family:'Cormorant Garamond',serif;font-size:34px;font-weight:300;letter-spacing:.08em;color:#F2EDE4;text-decoration:none;">Contact</a></li>
   </ul>
-  <a href="#contact" class="mobile-menu-cta mobile-nav-link">Begin a Project</a>
+  <a href="#contact" onclick="document.getElementById('mobileMenu').style.display='none';document.body.style.overflow='';" style="margin-top:48px;font-family:'Jost',sans-serif;font-size:11px;font-weight:300;letter-spacing:.25em;text-transform:uppercase;color:#C9A96E;border:1px solid rgba(201,169,110,0.4);padding:14px 36px;text-decoration:none;">Begin a Project</a>
 </div>
 </body>
 </html>
