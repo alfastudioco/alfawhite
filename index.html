@@ -875,21 +875,18 @@
 
 
   // Mobile menu
-  document.getElementById('navToggleBtn').onclick = function(){
-    var m = document.getElementById('mobileMenu');
-    m.style.display = m.style.display === 'flex' ? 'none' : 'flex';
-    m.style.opacity = m.style.display === 'flex' ? '1' : '0';
-    document.body.style.overflow = m.style.display === 'flex' ? 'hidden' : '';
-  };
-  document.getElementById('mobileMenuClose').onclick = function(){
+  function openMobileMenu(){
+    document.getElementById('mobileMenu').style.display = 'flex';
+    document.body.style.overflow = 'hidden';
+  }
+  function closeMobileMenu(){
     document.getElementById('mobileMenu').style.display = 'none';
     document.body.style.overflow = '';
-  };
+  }
+  document.getElementById('navToggleBtn').onclick = openMobileMenu;
+  document.getElementById('mobileMenuClose').onclick = closeMobileMenu;
   document.querySelectorAll('.mobile-nav-link').forEach(function(l){
-    l.onclick = function(){
-      document.getElementById('mobileMenu').style.display = 'none';
-      document.body.style.overflow = '';
-    };
+    l.onclick = closeMobileMenu;
   });
 
   // Assemble emails so Cloudflare can't obfuscate them
