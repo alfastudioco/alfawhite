@@ -17,8 +17,8 @@
   }
   html { scroll-behavior: smooth; }
   body { font-family: 'Jost', sans-serif; background: var(--bg-primary); color: var(--text-body); cursor: none; overflow-x: hidden; -webkit-font-smoothing: antialiased; }
-  .cursor { position: fixed; width: 8px; height: 8px; background: var(--gold); border-radius: 50%; pointer-events: none; z-index: 9999; transform: translate(-50%,-50%); transition: width .3s,height .3s,background .3s; }
-  .cursor-ring { position: fixed; width: 36px; height: 36px; border: 1px solid rgba(201,169,110,.55); border-radius: 50%; pointer-events: none; z-index: 9998; transform: translate(-50%,-50%); transition: width .4s,height .4s; }
+  .cursor { position: fixed; width: 8px; height: 8px; background: var(--gold); border-radius: 50%; pointer-events: none; z-index: 9999; transform: translate(-50%,-50%); transition: width .3s,height .3s,background .3s; display:none; }
+  .cursor-ring { position: fixed; width: 36px; height: 36px; border: 1px solid rgba(201,169,110,.55); border-radius: 50%; pointer-events: none; z-index: 9998; transform: translate(-50%,-50%); transition: width .4s,height .4s; display:none; }
   .cursor.expanded { width: 16px; height: 16px; background: var(--gold-light); }
   .cursor-ring.expanded { width: 56px; height: 56px; border-color: var(--gold); }
   nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; padding: 28px 56px; display: flex; justify-content: space-between; align-items: center; transition: all .6s var(--transition); }
@@ -281,8 +281,8 @@
     .section-desc { text-align:left; }
     .hero-letter { display:none; }
     /* Restore cursor on mobile so touch targets work */
-    body { cursor: auto; }
-    .nav-toggle { cursor: pointer; }
+    body { cursor: auto !important; }
+    .nav-toggle { cursor: pointer !important; }
     .trade-submit { cursor: pointer; }
     .form-submit { cursor: pointer; }
     .thankyou-close { cursor: pointer; }
@@ -704,9 +704,17 @@
 
 <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
   const cursor=document.getElementById('cursor'),ring=document.getElementById('cursorRing');
-  let mx=0,my=0,rx=0,ry=0;
-  document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;cursor.style.left=mx+'px';cursor.style.top=my+'px';});
-  (function loop(){rx+=(mx-rx)*.12;ry+=(my-ry)*.12;ring.style.left=rx+'px';ring.style.top=ry+'px';requestAnimationFrame(loop);})();
+  // Only enable custom cursor on non-touch devices
+  const isTouch = ('ontouchstart' in window) || navigator.maxTouchPoints > 0;
+  if(!isTouch){
+    cursor.style.display='block'; ring.style.display='block';
+    let mx=0,my=0,rx=0,ry=0;
+    document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;cursor.style.left=mx+'px';cursor.style.top=my+'px';});
+    (function loop(){rx+=(mx-rx)*.12;ry+=(my-ry)*.12;ring.style.left=rx+'px';ring.style.top=ry+'px';requestAnimationFrame(loop);})();
+    document.body.style.cursor='none';
+  } else {
+    document.body.style.cursor='auto';
+  }
   document.querySelectorAll('a,button,.service-card,.gallery-item,.testi-dot').forEach(el=>{
     el.addEventListener('mouseenter',()=>{cursor.classList.add('expanded');ring.classList.add('expanded');});
     el.addEventListener('mouseleave',()=>{cursor.classList.remove('expanded');ring.classList.remove('expanded');});
@@ -866,32 +874,39 @@
   document.querySelectorAll('form[action*="formspree"]').forEach(f=>f.addEventListener('submit',handleFormSubmit));
 
 
-  // Mobile menu
-  const navToggle = document.getElementById('navToggleBtn') || document.querySelector('.nav-toggle');
-  const mobileMenu = document.getElementById('mobileMenu');
-  const mobileMenuClose = document.getElementById('mobileMenuClose');
+  // Mobile menu — robust touch + click handling
+  (function(){
+    const toggle = document.getElementById('navToggleBtn') || document.querySelector('.nav-toggle');
+    const menu   = document.getElementById('mobileMenu');
+    const close  = document.getElementById('mobileMenuClose');
+    if(!toggle || !menu) return;
 
-  function openMenu(){
-    mobileMenu.classList.add('open');
-    navToggle.classList.add('active');
-    document.body.style.overflow = 'hidden';
-  }
-  function closeMenu(){
-    mobileMenu.classList.remove('open');
-    navToggle.classList.remove('active');
-    document.body.style.overflow = '';
-  }
+    function openMenu(e){
+      e.preventDefault();
+      e.stopPropagation();
+      menu.classList.add('open');
+      toggle.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeMenu(e){
+      if(e){ e.preventDefault(); e.stopPropagation(); }
+      menu.classList.remove('open');
+      toggle.classList.remove('active');
+      document.body.style.overflow = '';
+    }
 
-  if(navToggle) navToggle.addEventListener('click', openMenu);
-  if(mobileMenuClose) mobileMenuClose.addEventListener('click', closeMenu);
+    // Both click and touchend for maximum compatibility
+    ['click','touchend'].forEach(ev => {
+      toggle.addEventListener(ev, openMenu, {passive: false});
+      if(close) close.addEventListener(ev, closeMenu, {passive: false});
+    });
 
-  // Close on link click
-  document.querySelectorAll('.mobile-nav-link').forEach(link => {
-    link.addEventListener('click', closeMenu);
-  });
+    document.querySelectorAll('.mobile-nav-link').forEach(link => {
+      ['click','touchend'].forEach(ev => link.addEventListener(ev, closeMenu, {passive: false}));
+    });
 
-  // Close on escape key
-  document.addEventListener('keydown', e => { if(e.key === 'Escape') closeMenu(); });
+    document.addEventListener('keydown', e => { if(e.key === 'Escape') closeMenu(); });
+  })();
 
   // Assemble emails so Cloudflare can't obfuscate them
   (function(){
